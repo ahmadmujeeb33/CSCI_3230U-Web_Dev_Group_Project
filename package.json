@@ -1,0 +1,22 @@
+{
+  "name": "csci_3230u-web_dev_group_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuel-shard/CSCI_3230U-Web_Dev_Group_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuel-shard/CSCI_3230U-Web_Dev_Group_Project/issues"
+  },
+  "homepage": "https://github.com/samuel-shard/CSCI_3230U-Web_Dev_Group_Project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
