@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="/SCRIPT/homepage.js"></script>
     <link rel="stylesheet" href="/CSS/homepage.css">
 </head>
@@ -28,9 +29,13 @@
                 <a href="#" class="navbar-item">Help</a>
             </div>
         </div>
-
-        
-
     </nav>
-    <h1 class="is-size-1">Welcome to the website</h1>
+
+    <div id="app">
+        <ul>
+            <li v-for="nft in nfts">
+                <p>{{ nft.name }}</p>
+            </li>
+        </ul>
+    </div>
 </body>

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "SuaveGannon",
+        "src": "/NFTs/suave.png",
+        "price": "$100,000"
+    },
+    {
+        "name": "Munke",
+        "src": "/NFTs/munke.png",
+        "price": "$200,000"
+    },
+    {
+        "name": "Already out of ideas",
+        "src": "/NFTs/aooi.png",
+        "price": "$50,000"
+    },
+    {
+        "name": "Sandvitch",
+        "src": "/NFTs/sandvitch.png",
+        "price": "$1,000,000"
+    }
+]
