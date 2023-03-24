@@ -34,7 +34,8 @@
     <div id="app">
         <ul>
             <li v-for="nft in nfts">
-                <p>{{ nft.name }}</p>
+                <p>{{ nft.name }}: {{ nft.price }}</p>
+                <img :src="nft.src" style="width:100px;height:100px;">
             </li>
         </ul>
     </div>
