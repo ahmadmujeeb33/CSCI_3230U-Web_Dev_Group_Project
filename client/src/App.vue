@@ -1,11 +1,11 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <FavoritesList/> -->
-  <AddProductVue/>
+  <HelloWorld/>
 </template>
 
 <script>
-import AddProductVue from './components/AddProduct.vue'
+import HelloWorld from './components/HelloWorld.vue'
 // import FavoritesList from './components/FavoritesList.vue'
 
 
@@ -13,8 +13,9 @@ import AddProductVue from './components/AddProduct.vue'
 export default {
   name: 'App',
   components: {
+    HelloWorld
     // FavoritesList
-    AddProductVue
+    // AddProductVue
   }
 }
 </script>
