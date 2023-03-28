@@ -1,15 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+  <!-- <FavoritesList/> -->
+  <AddProductVue/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddProductVue from './components/AddProduct.vue'
+// import FavoritesList from './components/FavoritesList.vue'
+
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // FavoritesList
+    AddProductVue
   }
 }
 </script>
