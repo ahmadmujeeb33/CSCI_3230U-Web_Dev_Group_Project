@@ -1,20 +1,30 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <FavoritesList/> -->
-  <HelloWorld/>
+  <!-- <AddProductVue/> -->
+  <div>
+    <!-- <HelloWorld/>
+    <FavoritesList/> -->
+    <!-- <MainComponent/> -->
+    <router-view/>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import AddProductVue from './components/AddProduct.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 // import FavoritesList from './components/FavoritesList.vue'
+// import MainComponent from './components/MainComponent.vue'
 
 
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-    // FavoritesList
+    // MainComponent
+    // FavoritesList,
+    // HelloWorld
     // AddProductVue
   }
 }
