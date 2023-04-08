@@ -4,16 +4,18 @@
   <div class="FavoriteContainer">
     <h1 style="padding-top:30px">MyFavorites</h1>
 
+    <!-- <h1>{{allitems.name}}</h1> -->
+
     <div class="title">
-      <h3 @click="changeModel(item.id)"  v-for="item in favoriteItems" :key="item.id">{{item.title}} </h3>
+      <h3 @click="changeModel(item.id)"  v-for="item in allitems" :key="item.id">{{item.title}} </h3>
       <!-- <h3>Hockey</h3>
       <h3>Football</h3> -->
     </div>
 
 
-    <div class="ItemsContainer" v-for="item in favoriteItems" :key="item.id">
+    <div class="ItemsContainer" v-for="item in allitems" :key="item.id">
       <div class="Items" v-if="currentID ===  item.id ">
-        <img :src="item.currentImage" width="300" height="200" />
+        <img :src="item.url" width="300" height="200" />
         <div>
           <h3>{{item.title}}</h3>
           <h3>{{item.price}}</h3>
@@ -27,6 +29,8 @@
 </template>
 
 <script>
+
+import axios from 'axios';
 
 
 export default {
@@ -63,18 +67,43 @@ export default {
 
         
 
-      ]
+      ],
+
+      allitems:[]
 
     }
 
 
   },
 
+
+  // created : function(){
+  //   console.log("in this")
+  //   axios.get('/api/get_favorites')
+  //     .then((response) => {
+  //       // this.results =  response.data
+  //       console.log("------------------------------------")
+  //       console.log(response.data)
+  //     })
+  //     .catch((error) => {
+  //       console.log("!!!!!!!!!!!!!!!!!!!!!!!")
+  //       console.log(error)
+  //     }); 
+  // },
+
+  async created() {
+    console.log("in this")
+    let response = await axios.get("/api/get_favorites")
+    console.log("data",response.data)
+    this.allitems = response.data
+    console.log(this.allitems[0])
+  },
+
   methods: {
-        changeModel(newID) {
-          this.currentID = newID
-         
-        }
+    changeModel(newID) {
+      this.currentID = newID
+      
+    }
   }
 
 
