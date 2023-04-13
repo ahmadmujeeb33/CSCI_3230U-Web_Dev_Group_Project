@@ -1,13 +1,11 @@
-
-
 <template >
   <div class="FavoriteContainer">
-    <h1 style="padding-top:30px">MyFavorites</h1>
+    <p style="padding-top:30px;font-size: 40px;padding-bottom:20px">MyFavorites</p>
 
     <!-- <h1>{{allitems.name}}</h1> -->
 
     <div class="title">
-      <h3 @click="changeModel(item.id)"  v-for="item in allitems" :key="item.id">{{item.title}} </h3>
+      <p id = "titleText" @click="changeModel(item.id)"  v-for="item in allitems" :key="item.id">{{item.title}}  </p>
       <!-- <h3>Hockey</h3>
       <h3>Football</h3> -->
     </div>
@@ -37,38 +35,7 @@ export default {
   name: 'FavoritesList',
   data() {
     return {
-      currentID:0,
-      favoriteItems: [
-        {
-         id:1,
-         currentImage:require('@/assets/capture.png'),
-         title: "basketball",
-         price: 70
-        },
-        {
-         id:2,
-         currentImage:require('@/assets/hockey.png'),
-         title: "hockey",
-         price: 50
-        },
-        {
-         id:3,
-         currentImage:require('@/assets/football.png'),
-         title: "football",
-         price: 80
-        },
-
-         {
-         id:4,
-         currentImage:require('@/assets/football.png'),
-         title: "Lemon",
-         price: 90
-        }
-
-        
-
-      ],
-
+      currentID:0,     
       allitems:[]
 
     }
@@ -76,20 +43,6 @@ export default {
 
   },
 
-
-  // created : function(){
-  //   console.log("in this")
-  //   axios.get('/api/get_favorites')
-  //     .then((response) => {
-  //       // this.results =  response.data
-  //       console.log("------------------------------------")
-  //       console.log(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.log("!!!!!!!!!!!!!!!!!!!!!!!")
-  //       console.log(error)
-  //     }); 
-  // },
 
   async created() {
     console.log("in this")
@@ -158,6 +111,9 @@ export default {
   background-color: #caf0f8;
 }
 
+#titleText{
+  font-size: 20px;
+}
 
 </style>
  
