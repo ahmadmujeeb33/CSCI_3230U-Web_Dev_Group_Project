@@ -4,14 +4,33 @@
 </template>
 
 <script>
+<<<<<<< Updated upstream
 import HelloWorld from './components/HelloWorld.vue'
+=======
+// import AddProductVue from './components/AddProduct.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import FavoritesList from './components/FavoritesList.vue'
+// import MainComponent from './components/MainComponent.vue'
+import Homepage from './components/Homepage.vue';
+
+>>>>>>> Stashed changes
 
 export default {
   name: 'App',
   components: {
+<<<<<<< Updated upstream
     HelloWorld
   }
 }
+=======
+    // MainComponent
+    // FavoritesList,
+    // HelloWorld
+    // AddProductVue
+    Homepage,
+  },
+};
+>>>>>>> Stashed changes
 </script>
 
 <style>
