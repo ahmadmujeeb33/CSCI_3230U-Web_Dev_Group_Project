@@ -10,9 +10,9 @@
 	</section>
 
 	<!-- Display Products in Grid -->
-	<div class="columns">
+	<div class="columns"> <!-- "columns mt-5 is-8 is-variable" -->
 		<!-- Filter menu -->
-		<div class="column is-one-fifth mycol">
+		<div class="column is-one-fifth"> <!-- column is-4-tablet is-3-desktop -->
 			<ProductsPageSidebar/>
 		</div>
 		<!-- Show product grid in remaining space -->
@@ -60,5 +60,9 @@ margin-top: 60px;
 	background-color: #fafafa;
 	padding: 10px;
 	margin-bottom: 10px;
+}
+
+.is-20px {
+  width: 20px;
 }
 </style>
