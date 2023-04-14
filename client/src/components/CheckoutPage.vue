@@ -10,9 +10,9 @@
 						1. Address
 					</p>
 					<button class="card-header-icon" aria-label="more options">
-						<!-- <span class="icon">
+						<span class="icon">
 							<i class="fas fa-angle-down" aria-hidden="true"></i>
-						</span> -->
+						</span>
 					</button>
 				</header>
 				<div class="card-content">
@@ -105,7 +105,7 @@
 				</div>
 				
 				<footer class="card-footer">
-					<a class="card-footer-item" @click="clickCard">Next</a>
+					<a class="card-footer-item">Next</a>
 				</footer>
 			</div>
 			<!-- End of card -->
@@ -131,7 +131,7 @@
 						</div>
 					</div>
 					<footer class="card-footer">
-						<a class="card-footer-item">Previous</a>
+						<a class="card-footer-item" ref="prev"  @click="clickCard">Previous</a>
 						<a class="card-footer-item">Next</a>
 					</footer>
 				</div>
@@ -144,8 +144,7 @@
 <script setup>
 
 function clickCard() {
-	console.log("placeholder");
-
+	console.log("placeholder");	
 }
 </script>
 

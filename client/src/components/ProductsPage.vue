@@ -17,16 +17,132 @@
 		</div>
 		<!-- Show product grid in remaining space -->
 		<div class="column">
-			<section class="hero">
-				<div class="hero-body">
-					<p class="title">
-						Search Results
-					</p>
-					<p class="subtitle">
-						Put Products Grid Here
-					</p>
-				</div>
-			</section>
+			
+					
+
+
+
+					<!-- Grid of additional links to popular searches -->
+					<section>
+            <div class="container">
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <!-- <img src="../assets/football.png"> -->
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <!-- <img src="../assets/football.png"> -->
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="../assets/football.png">
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="../assets/football.png">
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <!-- <img src="../assets/football.png"> -->
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <!-- <img src="../assets/football.png"> -->
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            This is a generic card in a grid
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <!-- <img src="../assets/football.png"> -->
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+            </div>
+        </section>
+
+
+
 		</div>
 	</div>
 
@@ -64,5 +180,11 @@ margin-top: 60px;
 
 .is-20px {
   width: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0.5em;
 }
 </style>
