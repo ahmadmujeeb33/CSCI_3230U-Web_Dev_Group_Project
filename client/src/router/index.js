@@ -3,6 +3,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 import FavoritesList from '../components/FavoritesList.vue'
 import AddProduct from '../components/AddProduct.vue'
 import ProductsPage from '../components/ProductsPage.vue'
+import CheckoutPage from '../components/CheckoutPage.vue'
 
 const routes = [
   {
@@ -32,6 +33,12 @@ const routes = [
     path: '/ProductsPage',
     name: 'ProductsPage',
     component: ProductsPage
+  },
+
+	{
+    path: '/CheckoutPage',
+    name: 'CheckoutPage',
+    component: CheckoutPage
   },
   
 ]
