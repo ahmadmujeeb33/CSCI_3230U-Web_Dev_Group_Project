@@ -1,7 +1,7 @@
 
 
 <template >
-  
+  <!-- https://bulma.io/documentation/components/menu/ -->
 	<aside class="menu">
   <p class="menu-label">
     Category
