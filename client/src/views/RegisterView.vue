@@ -1,6 +1,7 @@
 <template>
     <div class="register">
        
+<<<<<<< Updated upstream
 
         <form @submit.prevent="register">
             <h2>Register</h2>
@@ -34,6 +35,56 @@
          
             <button @click="submit">Register</button>
           </form>
+=======
+        <div class="columns is-centered">
+            <form class="box" @submit.prevent="register">
+                <h2>Register</h2>
+
+                <div class="field">
+                    <label class="label">Email: </label>
+                    <div class="control">
+                        <input type="email" placeholder="Email address" v-model="email"/>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password: </label>
+                    <div class="control">
+                        <input type="Password" placeholder="Password" v-model="password"/> 
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">First Name: </label>
+                    <div class="control">
+                        <input type="text" placeholder="First Name" v-model="f_name"/>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Last Name: </label>
+                    <div class="control">
+                        <input type="text" placeholder="Last Name" v-model="l_name"/> 
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">City:</label>
+                    <div class="control">
+                        <input type="text" placeholder="City" v-model="city"/>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="button" @click="submit">Register</button>
+                </div>
+        
+        <p v-if="register_error">{{register_error}}</p>
+         
+            
+          </form>
+        </div>
+>>>>>>> Stashed changes
         
     </div>
     
@@ -83,7 +134,11 @@
 
                 setDoc(docRef, data)
                     .then(() => {
+<<<<<<< Updated upstream
                         console.log("Document has been added successfully");
+=======
+                        console.log("Document has been added successfully, USER ADDED TO DB");
+>>>>>>> Stashed changes
                     })
                     .catch(error => {
                         console.log(error);
@@ -113,7 +168,11 @@
                     break;
 
                 case "auth/email-already-in-use":
+<<<<<<< Updated upstream
                     register_error.value= "email already in use, use another 1"
+=======
+                    register_error.value= "email already in use, use another one"
+>>>>>>> Stashed changes
                     break;
         
                 default:
@@ -124,4 +183,13 @@
         });
 
     };
+<<<<<<< Updated upstream
 </script>
+=======
+</script>
+
+
+<style lang="scss" scoped>
+    @import "~bulma/css/bulma.css"
+</style>
+>>>>>>> Stashed changes

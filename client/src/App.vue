@@ -1,4 +1,5 @@
 <template>
+<<<<<<< Updated upstream
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
@@ -20,11 +21,49 @@
   let auth;
 
   const logged_in= ref(false);
+=======
+  
+  <nav>
+    
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/products">Products |</router-link>
+    <router-link to="/addproduct" v-if="logged_in">Add Product</router-link> 
+    <router-link to="/login" v-if="!logged_in">Login</router-link> |
+    <router-link to="/register" v-if="!logged_in">Register |</router-link> 
+    <router-link to="/cart" v-if="logged_in">Cart |</router-link> 
+    <router-link to="/profile" v-if="logged_in">Profile|</router-link>
+    <router-link to="/checkout" v-if="logged_in">Checkout </router-link>
+    <button @click="sign_out" v-if="logged_in">Logout</button>
+  
+  
+</nav>
+
+  <router-view/>
+</template>
+
+<script setup>
+
+  import{useRouter} from 'vue-router'
+  import{onMounted , ref} from "vue"
+  import {getAuth, onAuthStateChanged, signOut} from "firebase/auth"
+  const router =useRouter();
+
+  let auth;
+
+  const logged_in= ref(false);
+  
+>>>>>>> Stashed changes
   onMounted(()=>
   {
     auth=getAuth();
 
     onAuthStateChanged(auth,(user)=>{
+<<<<<<< Updated upstream
+=======
+      
+
+>>>>>>> Stashed changes
       if(user)
       {
         logged_in.value=true;
@@ -41,7 +80,11 @@
   const sign_out =() =>
   {
     signOut(auth).then(()=>{
+<<<<<<< Updated upstream
       router.push('/')
+=======
+      router.push('/products')
+>>>>>>> Stashed changes
 
     });
   };
@@ -57,6 +100,22 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+<<<<<<< Updated upstream
+}
+
+nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+=======
+>>>>>>> Stashed changes
 }
 
 nav {

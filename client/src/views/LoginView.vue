@@ -1,6 +1,7 @@
 <template>
     <div class="login">
         
+<<<<<<< Updated upstream
         <form @submit.prevent="sign_in">
             <h1> Sign IN</h1>
             
@@ -9,12 +10,45 @@
             <button @click="submit">Sign in</button>
             <p v-if="sign_in_error">{{sign_in_error}}</p>
           </form>
+=======
+        <div class="columns is-centered">
+        <form class="box" @submit.prevent="sign_in">
+            <h1> Sign IN</h1>
+
+            <div class="field">
+                <label class="label">Email: </label>
+                <div class="control">
+                    <input type="email" placeholder="Email address" v-model="email"/>
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label class="label">Password: </label>
+                <div class="control">
+                    <input type="Password" placeholder="Password" v-model="password"/>
+                </div>
+            </div>
+            
+           
+            
+            <div>
+                <button class="button" @click="submit">Sign in</button>
+            </div>
+            <p v-if="sign_in_error">{{sign_in_error}}</p>
+        </form>
+    </div>
+    
+>>>>>>> Stashed changes
         
     </div>
     
 </template>
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <script setup>
     
     import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -33,7 +67,11 @@
         .then(()=>{
             console.log("Sucessful Sign in")
             
+<<<<<<< Updated upstream
             router.push('/profile')
+=======
+            router.push('/checkout')
+>>>>>>> Stashed changes
         })
         .catch((error)=>
         {
@@ -69,3 +107,9 @@
 
 
 
+<<<<<<< Updated upstream
+=======
+<style lang="scss" scoped>
+    @import "~bulma/css/bulma.css"
+</style>
+>>>>>>> Stashed changes

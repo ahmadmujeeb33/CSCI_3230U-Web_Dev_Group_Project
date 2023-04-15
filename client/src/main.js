@@ -7,8 +7,11 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 const firebaseConfig = {
     apiKey: "AIzaSyAjTD1JfZ7Jx7cT_89naKFgDeUL1nKr8LA",
     authDomain: "ecommerce-f0a2b.firebaseapp.com",
@@ -22,7 +25,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 export default db;
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 
 createApp(App).use(store).use(router).mount('#app')
