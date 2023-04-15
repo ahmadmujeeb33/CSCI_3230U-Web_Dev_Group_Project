@@ -3,7 +3,7 @@
 	<router-view/>
 	<!-- Search results header -->
 	<section class="hero">
-			<p class="subtitle left-align">
+			<p class="title is-6 left-align">
 				<b>Search Results:</b> 123 Products Found
 			</p>
 		
@@ -16,48 +16,13 @@
 			<ProductsPageSidebar/>
 		</div>
 		<!-- Show product grid in remaining space -->
-		<div class="column">
+		<div class="column productGrid">
 			
-					
-
-
-
-					<!-- Grid of additional links to popular searches -->
+					<!-- Product Grid -->
 					<section>
             <div class="container">
-
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <!-- <img src="../assets/football.png"> -->
-                        </figure>
-                    </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
-
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <!-- <img src="../assets/football.png"> -->
-                        </figure>
-                    </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
-
+							
+							<!-- Product Cards -->
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
@@ -90,7 +55,7 @@
                     </footer>
                 </div>
 
-                <div class="card">
+								<div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
                             This is a generic card in a grid
@@ -98,7 +63,7 @@
                     </header>
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <!-- <img src="../assets/football.png"> -->
+                            <img src="../assets/football.png">
                         </figure>
                     </div>
                     <footer class="card-footer">
@@ -106,38 +71,7 @@
                     </footer>
                 </div>
 
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <!-- <img src="../assets/football.png"> -->
-                        </figure>
-                    </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
-
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <!-- <img src="../assets/football.png"> -->
-                        </figure>
-                    </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
-
+						<!-- End of Product Cards -->
             </div>
         </section>
 
@@ -148,18 +82,8 @@
 
 </template>
 
-<script>
+<script setup>
 import ProductsPageSidebar from './ProductsPageSidebar.vue'
-
-
-
-
-export default {
-name: 'ProductsPage',
-components: {
-	ProductsPageSidebar
-}
-}
 </script>
 
 <style>
@@ -186,5 +110,9 @@ margin-top: 60px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 0.5em;
+}
+
+.productGrid {
+	padding: 10px;
 }
 </style>
