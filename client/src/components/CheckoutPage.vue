@@ -284,12 +284,12 @@ function showReview(event) {
 	// use Bulma table, extract info currently in the text fields for address & payment
 	
 	// array of values to populate
-	let toPopulate = ["street"];
+	//let toPopulate = ["street"];
 
 	$( ".input" ).each(function( i ) {
     if($(this).val() !== ""){
-			toPopulate.push(i);
-			console.log($(this).val());
+			// toPopulate.push(i);
+			console.log(i);
 
 			//assign tr variable to code needed to access next tr
 			//$("."+toPopulate[i]+"Review").text($("."+toPopulate[i]).val());
