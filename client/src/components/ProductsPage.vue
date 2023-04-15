@@ -155,7 +155,7 @@ import ProductsPageSidebar from './ProductsPageSidebar.vue'
 
 
 export default {
-name: 'App',
+name: 'ProductsPage',
 components: {
 	ProductsPageSidebar
 }
