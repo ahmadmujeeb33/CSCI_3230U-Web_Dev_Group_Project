@@ -1,10 +1,8 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import 'bulma/css/bulma.css'
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+
+
 
 
 const firebaseConfig = {
@@ -20,5 +18,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 export default db;
-
-createApp(App).use(store).use(router).mount('#app')
