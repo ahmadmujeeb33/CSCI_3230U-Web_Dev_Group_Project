@@ -14,6 +14,8 @@
     <div class="ItemsContainer" v-for="item in allitems" :key="item.id">
       <div class="Items" v-if="currentID ===  item.id ">
         <img :src="item.url" width="300" height="200" />
+
+        
         <div>
           <h3>{{item.title}}</h3>
           <h3>{{item.price}}</h3>
