@@ -40,6 +40,18 @@ const routes = [
     path: '/Categories',
     name: '/Categories',
     component: CategoriesPage
+  },
+
+	{
+    path: '/Products',
+    name: '/Products',
+    component: ProductsPage
+  },
+	
+	{
+    path: '/Checkout',
+    name: '/Checkout',
+    component: CheckoutPage
   }
 
 ]
