@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
 import FavoritesList from '../components/FavoritesList.vue'
 import AddProduct from '../components/AddProduct.vue'
+import CategoriesPage from '../components/CategoriesPage.vue'
 import ProductsPage from '../components/ProductsPage.vue'
 import CheckoutPage from '../components/CheckoutPage.vue'
 import InformationPage from '../components/InformationPage.vue'
@@ -35,19 +36,12 @@ const routes = [
     component: FavoritesList
   },
 
-	{
-    path: '/ProductsPage',
-    name: 'ProductsPage',
-    component: ProductsPage
+  {
+    path: '/Categories',
+    name: '/Categories',
+    component: CategoriesPage
+  }
 
-  },
-
-	{
-    path: '/CheckoutPage',
-    name: 'CheckoutPage',
-    component: CheckoutPage
-  },
-  
 ]
 
 const router = createRouter({
