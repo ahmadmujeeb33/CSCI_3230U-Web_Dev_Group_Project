@@ -42,15 +42,60 @@
           <div class="inputBox">
             <div class="field ">
               <div class="control">
-                <textarea v-model="catagories" cols="49" rows="1"  class="textarea" placeholder="Enter Catagory"></textarea>
+                <div class="select">
+                  <select v-model="catagories" class="dropdown">
+                    <option>Bikes</option>
+                    <option>Clothes</option>
+                    <option>Furniture</option>
+                    <option>Phones</option>
+                    <option>Sports</option>
+                    <option>Watches</option>
+
+                  </select>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+       <!-- <div class="field is-horizontal  ">
+        <div class="field-label is-normal">
+          <label class="label">Catagories</label>
+        </div>
+        <div class="field-body ">
+          <div class="inputBox">
+            <div class="field ">
+              <div class="control">
+                <textarea v-model="catagories" cols="49" rows="1"  class="textarea" placeholder="Enter Catagory"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
 
-      <div class="field is-horizontal  ">
+      <!-- <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Catagories</label>
+        </div>
+        <div class="field-body ">
+          <div class="inputBox">
+            <div class="field ">
+              <div class="control">
+                <div class="select">
+                  <select>
+                    <option>Select dropdown</option>
+                    <option>With options</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label">Price</label>
         </div>
@@ -177,6 +222,11 @@ export default {
     justify-content: flex-end;
     gap:40px;
     padding-top: 30px;
+  }
+
+  .dropdown{
+      width: 400px; /* Set the desired width */
+
   }
   
 
