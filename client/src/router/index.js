@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
 import FavoritesList from '../components/FavoritesList.vue'
 import AddProduct from '../components/AddProduct.vue'
+import CategoriesPage from '../components/CategoriesPage.vue'
 
 const routes = [
   {
@@ -26,7 +27,13 @@ const routes = [
     name: 'FavoritesList',
     component: FavoritesList
   },
-  
+
+  {
+    path: '/Categories',
+    name: '/Categories',
+    component: CategoriesPage
+  }
+
 ]
 
 const router = createRouter({
