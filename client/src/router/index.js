@@ -3,12 +3,20 @@ import HelloWorld from '../components/HelloWorld.vue'
 import FavoritesList from '../components/FavoritesList.vue'
 import AddProduct from '../components/AddProduct.vue'
 import CategoriesPage from '../components/CategoriesPage.vue'
+import ProductsPage from '../components/ProductsPage.vue'
+import CheckoutPage from '../components/CheckoutPage.vue'
+import InformationPage from '../components/InformationPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'HelloWorld',
     component: HelloWorld
+  },
+  {
+    path: '/InformationPage',
+    name: 'InformationPage',
+    component: InformationPage
   },
 
   // {
