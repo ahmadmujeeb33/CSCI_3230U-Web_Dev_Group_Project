@@ -20,6 +20,11 @@
         </div>
         <div class="column is-centered is-half">
             <div class="box">
+                <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
+                <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25">
+
+                <!-- <h1 v-if="awesome">Vue is awesome!</h1>
+                <h1 v-else>Oh no 😢</h1> -->
                 <div id="title" class="title">Title</div>
                 <br>
                 <div id="price" class="info"><label>Price:</label> 123123</div>
@@ -51,19 +56,44 @@
 
 <script>
 //import id from 
+import axios from 'axios'
 
 export default {
   name: 'InformationPage',
+  data() {
+    return {
+      favorites:false,     
+      
+
+    }
+
+
+  },
+
+  async created(){
+    let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
+    this.favorites = await axios.post("/api/info/check_favorites",data)
+
+  },
 
   methods: {
-    favorite(){
-    // let img = document.getElementById("favoriteImg");
+    async toFavorite(){
+        let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
+        this.favorites = true
+        console.log("in ehreee")
+        await axios.post("/api/info/add_favorites",data)
 
-    // if (img.src == "../assets/heartEmpty.png"){
-    //     img.src = "../assets/heartFilled.png"
-    // }else{
-    //     img.src = "../assets/heartEmpty.png"
-    // }
+  
+    },
+
+
+    async unFavorite(){
+        let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
+        this.favorites = false
+        console.log("in ehreee")
+        await axios.post("/api/info/delete_favorites",data)
+
+   
     }
 
 }
@@ -186,5 +216,9 @@ window.onload = function(){
     size: 200;
     justify-content: left;
     display: flex;
+}
+
+.starImage{
+    cursor: pointer;
 }
 </style>
