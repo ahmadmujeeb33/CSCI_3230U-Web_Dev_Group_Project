@@ -7,105 +7,59 @@
     
         <div class="columns is-vcentered">
             
-            <div class="column is-centered is-half">
-                <div class="box">
-                    <div id="title" class="title">{{ title }}</div>
-                    <br>
-                    <div id="price" class="info"><label>Price:</label>{{ price }} </div>
-                    <br>
-                    <div id="seller" class="info"><label>Seller:</label>{{ price }} </div>
-                    <br>
-                    <div id="categories" class="info"><label>categories:</label>{{ categories }}</div>
-                    <br>
-                    <div id="descripition" class="info" ><label>Descripition:</label> {{ Descripition }} </div>
-                    <br>
-                    <div class="buttons is-left">
-                        <div class="button">Add to Cart</div>
-                        <div class="button"><img src="../assets/heartFilled.png" alt="" id ="favoriteImg"></div>
-    
-                    </div>
-                    <div id="reviews" class="info">
-                        
-                    </div>
-    
-                </div>
-            </div>
-            <div class="column is-centered is-half">
-                <div class="box">
-                    <img :src="image" class="center" alt="">  
-                </div>
-                
-            </div>
-    
         </div>
+        <div class="column is-centered is-half">
+            <div class="box">
+                <div id="title" class="title">Title</div>
+                <br>
+                <div id="price" class="info"><label>Price:</label> 123123</div>
+                <br>
+                <div id="seller" class="info"><label>Seller:</label> your mom</div>
+                <br>
+                <div id="categories" class="info"><label>categories:</label></div>
+                <br>
+                <div id="descripition" class="info" ><label>Descripition:</label> asd a </div>
+                <br>
+                <button id="add" class="info" >Add to Cart</button>
+                <button  @click="favorite" id="favorite" class="info"><img src="../assets/heartFilled.png" alt="" id ="favoriteImg"></button>
+                <br>
+                <div id="reviews" class="info">
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
     
-        
-    
-    </body>
-    
-    </html>
-    </template>
-    
-    <script>
-    //import id from 
-    
-    export default {
-      name: 'InformationPage',
-      data(){
-        return{
-            Descripition:"asd",
-            price:"asda",
-            seller:"asdads",
-            categories:"asd",
-            title: "title",
-            image: "https://storage.googleapis.com/ecommerce-f0a2b.appspot.com/capture.png?GoogleAccessId=firebase-adminsdk-cgbfl%40ecommerce-f0a2b.iam.gserviceaccount.com&Expires=1710648000&Signature=CYifGo2Pv9vjCwnYvOotx7Gr37D7BNPb2v8K7UrcopNEr8KMteYFloG7iO8nlJBKs7Vo6xyavLcEmv4QbNdIAYQFKLd4II%2F8tkijkm11dKxg0jEj78ljG20UDUXIS5JjvpsKjZWMETkmF3IEYYdJvOrQ4%2FeAj0GotoMcUwiZJEnBSqH%2BHxWwGTEEj01GkLZp0GqYpqEd%2FE%2FG5Ia2Wb1wTGrvliusEmrC98TNWabvmuCySWG4bKnZtHmj19eqW6GXXy%2BGcI%2FfLfUNmoyEbSzLgoFkxMfncQlg4qjHgI2HlmpwYRAl2vJ2Ec03W64EbrYf5aaJqPt%2BQh0YwqxovsiqOA%3D%3D"
-        }
-      },
-    
-      methods: {
-    
-      }
+
+</body>
+
+</html>
+</template>
+
+<script>
+//import id from 
+
+export default {
+  name: 'InformationPage',
+
+  methods: {
+    favorite(){
+    // let img = document.getElementById("favoriteImg");
+
+    // if (img.src == "../assets/heartEmpty.png"){
+    //     img.src = "../assets/heartFilled.png"
+    // }else{
+    //     img.src = "../assets/heartEmpty.png"
+    // }
     }
-    
-//     import{onMounted,} from "vue"
-//     import { getAuth,onAuthStateChanged, } from "firebase/auth";
-//     import { getFirestore,getDoc,doc} from "firebase/firestore";
-    import * as d3 from 'd3'
 
-//     const db = getFirestore();
-//     let auth = getAuth();
+}
+}
 
-//     onMounted(()=>
-//     {
-//     auth=getAuth();
 
-//     onAuthStateChanged(auth,async (user)=>{
-//       if(user)
-//       {
-
-//         const docRef = doc(db, "user", user.uid);
-//         const docSnap = await getDoc(docRef);
-
-//         if (docSnap.exists())
-//         {
-
-//         } 
-//         else 
-//         {
-//           // docSnap.data() will be undefined in this case
-//           console.log("No such document!");
-//         }
-        
-//       }
-//       else
-//       {
-//         console.log("null")
-//       }
-
-//     });
-
-//   });
-    
 
 
 

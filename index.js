@@ -24,35 +24,7 @@ app.use('/api',routes);
 
 
 
-// app.get('/api/check_favorites',async(req,res)=>{
-//   let userId = "dQbBabEpFn87fLxaHTtO"
-//   let itemId = "DNGah477roSUvSbvDw0x"
 
-//   let favoriteFound  = false
-//   await db.collection('Favorite').get().then((snapshot) => {
-//     snapshot.forEach((doc) => {
-//       if(doc.data()['itemId'].toString() == itemId && doc.data()['userId'].toString() == userId){
-//         favoriteFound = true
-//         res.send(true)
-//       }
-//     });
-//   })
-
-//   if(!favoriteFound){
-//     res.send(false)
-
-//   }
-
-
-// })
-
-// app.post('/api/add_favorites',async(req,res)=>{
-//   console.log(req.body)
-
-//   let favorite = db.collection('Favorite')
-//   favorite.add(req.body)
-  
-// })
 
 
 app.listen(PORT, () => {
