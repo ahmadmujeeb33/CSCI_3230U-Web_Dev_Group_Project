@@ -11,7 +11,7 @@
     </div>
 
 
-    <div class="ItemsContainer" v-for="item in allitems" :key="item.id">
+    <!-- <div class="ItemsContainer" v-for="item in allitems" :key="item.id">
       <div class="Items" v-if="currentID ===  item.id ">
         <img :src="item.url" width="300" height="200" />
 
@@ -24,13 +24,40 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+    <div class="ItemsContainer" v-for="item in allitems" :key="item.id">
+      <div class="Items" v-if="currentID ===  item.id ">
+        <div class="card">
+          <header class="card-header">
+              <p class="card-header-title">
+                  {{item.title}}
+              </p>
+          </header>
+          <div class="card-image">
+              <figure class="image is-4by3">
+                  <img :src="item.url" width="300" height="200" />
+              </figure>
+          </div>
+          <footer class="card-footer">
+              <a href="#" class="card-footer-item">Click for more details</a>
+          </footer>
+        </div>
+      </div>
     </div>
+
+
+
+
+
   </div>
 </template>
 
 <script>
 
 import axios from 'axios';
+import { getAuth,onAuthStateChanged, } from "firebase/auth";
+
 
 
 export default {
@@ -48,10 +75,20 @@ export default {
 
   async created() {
     console.log("in this")
-    let response = await axios.get("/api/get_favorites")
-    console.log("data",response.data)
-    this.allitems = response.data
-    console.log(this.allitems[0])
+
+    let auth=getAuth();
+
+    onAuthStateChanged(auth,async (user)=>{
+      console.log("user id",user.uid)
+      let response = await axios.get(`/api/get_favorites/${user.uid}`)
+      console.log("data",response.data)
+      this.allitems = response.data
+      console.log(this.allitems[0])
+
+    });
+
+
+   
   },
 
   methods: {

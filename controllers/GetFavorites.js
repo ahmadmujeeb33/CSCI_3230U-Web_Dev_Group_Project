@@ -3,20 +3,20 @@ const router = require('express').Router();
 
 console.log("thissssssssss")
 
-router.get('/', async(req,res)=>{
+router.get('/:id', async(req,res)=>{
     let postID = []
     await main.db.collection('Favorite').get().then((snapshot) => {
       snapshot.forEach((doc) => {
-        postID.push(doc.data()['itemId'])
+        if(req.params.id.toString() == doc.data()['userId']){
+          postID.push(doc.data()['itemId'])
+        }
       });
     })
     
     
     let favorite = []
-    console.log(postID)
   
     for(let id in postID){
-      console.log("id ",postID[id])
       await main.db.collection('Items').doc(postID[id]).get().then((snapshot) => {
         let data = snapshot.data()
         data['id'] = postID[id]
