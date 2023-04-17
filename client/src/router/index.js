@@ -1,16 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HelloWorld from '../components/HelloWorld.vue'
+//import HelloWorld from '../components/HelloWorld.vue'
 import FavoritesList from '../components/FavoritesList.vue'
 import AddProduct from '../components/AddProduct.vue'
+import CategoriesPage from '../components/CategoriesPage.vue'
 import ProductsPage from '../components/ProductsPage.vue'
 import CheckoutPage from '../components/CheckoutPage.vue'
 import InformationPage from '../components/InformationPage.vue'
+import LoginView from '../components/LoginView.vue'
+import RegisterView from '../components/RegisterView.vue'
+import CartView from '../components/CartView.vue'
+import ProfileView from '../components/ProfileView.vue'
+import HomeView from '../components/HomeView.vue'
+import HomeView2 from '../components/HomeView.vue'
+
 
 const routes = [
   {
     path: '/',
-    name: 'HelloWorld',
-    component: HelloWorld
+    name: 'home',
+    component: HomeView
+  },
+  {
+    path: '/home',
+    name: 'home2',
+    component: HomeView2
   },
   {
     path: '/InformationPage',
@@ -18,11 +31,7 @@ const routes = [
     component: InformationPage
   },
 
-  // {
-  //   path: '/Favorite',
-  //   name: 'MyFavorites',
-  //   component: MyFavorites
-  // },
+
   {
     path: '/AddProduct',
     name: 'AddProduct',
@@ -35,19 +44,55 @@ const routes = [
     component: FavoritesList
   },
 
-	{
-    path: '/ProductsPage',
-    name: 'ProductsPage',
-    component: ProductsPage
-
+  {
+    path: '/Categories',
+    name: 'Categories',
+    component: CategoriesPage
   },
-
-	{
-    path: '/CheckoutPage',
-    name: 'CheckoutPage',
+  {
+    path: '/checkout',
+    name: 'checkout',
     component: CheckoutPage
   },
+  {
+    path: '/products',
+    name: 'products',
+    component: ProductsPage
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: CartView
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView
+  },
   
+
+	{
+    path: '/Products',
+    name: '/Products',
+    component: ProductsPage
+  },
+	
+	{
+    path: '/Checkout',
+    name: '/Checkout',
+    component: CheckoutPage
+  }
+
 ]
 
 const router = createRouter({

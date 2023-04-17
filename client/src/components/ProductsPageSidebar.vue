@@ -8,10 +8,22 @@
   </p>
   <ul class="menu-list">
     <li><a>Sample Category 1</a></li>
-    <li><a>Sample Category 1</a></li>
+    <li><a>Sample Category 2</a></li>
+		<li><a>Should these Categories by Dynamically Generated?</a></li>
   </ul>
+  
   <p class="menu-label">
-    Administration
+    Rating
+  </p>
+  <ul class="menu-list">
+    <li><a>1 Star and Above</a></li>
+    <li><a>2 Star and Above</a></li>
+    <li><a>3 Star and Above</a></li>
+		<li><a>4 Star and Above</a></li>
+  </ul>
+
+	<p class="menu-label">
+    Nested Menu Example
   </p>
   <ul class="menu-list">
     <li><a>Team Settings</a></li>
@@ -24,17 +36,6 @@
       </ul>
     </li>
     <li><a>Invitations</a></li>
-    <li><a>Cloud Storage Environment Settings</a></li>
-    <li><a>Authentication</a></li>
-  </ul>
-  <p class="menu-label">
-    Rating
-  </p>
-  <ul class="menu-list">
-    <li><a>1 Star and Above</a></li>
-    <li><a>2 Star and Above</a></li>
-    <li><a>3 Star and Above</a></li>
-		<li><a>4 Star and Above</a></li>
   </ul>
 </aside>
 
@@ -102,6 +103,17 @@ export default {
     padding-top: 30px;
   }
   
+	.menu {
+		position: sticky;
+		display: inline-block;
+		vertical-align: top;
+		max-height: 100%;
+		overflow: hidden;
+		top: 0;
+		bottom: 0;
+		/* padding: 30px;
+		width: 200px; */
+	}
 
 </style>
  
