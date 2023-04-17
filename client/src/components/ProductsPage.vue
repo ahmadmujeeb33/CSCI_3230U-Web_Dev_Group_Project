@@ -84,6 +84,11 @@
 
 <script setup>
 import ProductsPageSidebar from './ProductsPageSidebar.vue'
+import data from "./../../../controllers/data.js";
+
+console.log("product1: ",data.product1);
+console.log("product1 title: ",data.product1.title);
+
 </script>
 
 <style>

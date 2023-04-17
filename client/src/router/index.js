@@ -49,6 +49,7 @@ const routes = [
     name: 'Categories',
     component: CategoriesPage
   },
+<<<<<<< HEAD
   {
     path: '/checkout',
     name: 'checkout',
@@ -80,6 +81,20 @@ const routes = [
     component: ProfileView
   },
   
+=======
+
+	{
+    path: '/Products',
+    name: '/Products',
+    component: ProductsPage
+  },
+	
+	{
+    path: '/Checkout',
+    name: '/Checkout',
+    component: CheckoutPage
+  }
+>>>>>>> da6cdbb5237c01f79824dec50bf125f9b6c75b6b
 
 ]
 
