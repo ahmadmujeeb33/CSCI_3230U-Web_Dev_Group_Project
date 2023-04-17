@@ -5,8 +5,8 @@
       <!-- Main homepage content -->
       <section class="section">
         <div class="container">
-          <h1 class="title">Welcome to our Group Project Website</h1>
-          <p class="subtitle">This is the homepage of our project.</p>
+          <h1 class="title">Welcome to NFTees!</h1>
+          <p class="subtitle">The premier NFT Tee-shirt acquisition hub!</p>
         </div>
       </section>
   
