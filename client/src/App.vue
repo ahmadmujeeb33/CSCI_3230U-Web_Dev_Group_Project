@@ -9,6 +9,7 @@
   <div>
     <NavigationBar></NavigationBar>
     <router-view />
+    
     <BottomBar></BottomBar>
     <!-- <HelloWorld /> -->
     <!-- <FavoritesList /> -->
@@ -21,6 +22,8 @@
 <script>
 import NavigationBar from './components/NavigationBar.vue';
 import BottomBar from './components/BottomBar.vue';
+
+
 // import CategoriesPage from './components/CategoriesPage.vue';
 // import BottomBar from './components/BottomBar.vue';
 // import AddProductVue from './components/AddProduct.vue'
@@ -34,7 +37,9 @@ export default {
   name: 'App',
   components: {
     NavigationBar,
-    BottomBar
+    BottomBar,
+    
+
   }
 }
 </script>

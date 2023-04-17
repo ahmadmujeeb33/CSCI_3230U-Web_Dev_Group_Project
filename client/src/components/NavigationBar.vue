@@ -28,25 +28,46 @@
                     </div>
                 </div>
 
-                <!-- Item 1: Home -->
-                <router-link class="navbar-item" to="/Home">
+                <!-- Item : landingpage -->
+                <router-link class="navbar-item" to="/"></router-link>
+
+                <!-- Item : Home -->
+                <router-link class="navbar-item" to="/home">
                     Home
                 </router-link>
 
-                <!-- Item 2: Categories -->
+                <!-- Item : Categories -->
                 <router-link class="navbar-item" to="/Categories">
                     Categories
                 </router-link>
 
-                <!-- Item 3: Add Product -->
-                <router-link class="navbar-item" to="/AddProduct">
+                  <!-- Item : products -->
+                  <router-link class="navbar-item" to="/products">
+                    Products
+                </router-link>
+
+                <!-- Item : Add Product -->
+                <router-link class="navbar-item" to="/AddProduct" v-if="logged_in">
                     Post an Item
                 </router-link>
 
-                <!-- Item 4: Favourites -->
-                <router-link class="navbar-item" to="/FavoritesList">
+                <!-- Item : Favourites -->
+                <router-link class="navbar-item" to="/FavoritesList" v-if="logged_in">
                     Favourites
                 </router-link>
+
+                <!-- Item : Checkout -->
+                <router-link class="navbar-item" to="/checkout" v-if="logged_in">
+                    Checkout
+                </router-link>
+
+                
+
+                
+
+               
+                <!-- LOG OUT BUTTON MOVE AFER -->
+                <button @click="sign_out" v-if="logged_in">Logout</button>
             </div>
 
             <!-- nav-End -->
@@ -58,7 +79,8 @@
                                 <span class="icon">
                                     <i class="fas fa-user"></i>
                                 </span>
-                                <span>My Account</span>
+                                <span><router-link to="/login" v-if="!logged_in">Login</router-link></span>
+                                <span><router-link to="/profile" v-if="logged_in">My Account</router-link></span>
                             </span>
                         </a>
 
@@ -67,7 +89,8 @@
                                 <span class="icon">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                 </span>
-                                <span>Cart</span>
+                                <span><router-link to="/register" v-if="!logged_in">Register</router-link></span>
+                                <span><router-link to="/cart" v-if="logged_in">Cart</router-link> </span>
                             </span>
                         </a>
                     </div>
@@ -110,6 +133,47 @@ export default {
         }
     }
 }
+</script>
+
+<script setup>
+
+  import{useRouter} from 'vue-router'
+  import{onMounted , ref} from "vue"
+  import {getAuth, onAuthStateChanged, signOut} from "firebase/auth"
+  const router =useRouter();
+
+  let auth;
+
+  const logged_in= ref(false);
+  
+  onMounted(()=>
+  {
+    auth=getAuth();
+
+    onAuthStateChanged(auth,(user)=>{
+      
+
+      if(user)
+      {
+        logged_in.value=true;
+      }
+      else
+      {
+        logged_in.value=false;
+      }
+
+    });
+
+  });
+
+  const sign_out =() =>
+  {
+    signOut(auth).then(()=>{
+      router.push('/products')
+
+    });
+  };
+
 </script>
 
 
