@@ -6,7 +6,6 @@ const InformationPage = require('./InformationPage')
 const Search = require('./Search');
 const Category = require('./Category')
 
-
 router.use('/upload', AddProduct);
 router.use('/get_favorites', GetFavorites);
 router.use('/search', Search);
