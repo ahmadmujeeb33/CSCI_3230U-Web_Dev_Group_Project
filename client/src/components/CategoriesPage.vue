@@ -60,24 +60,6 @@
 </template>
 
 
-
-    <!-- <div class="columns is-desktop">
-        <div class="column">
-            Phones
-        </div>
-        <div class="column">
-            Watches
-            <img src="../assets/categories/watches.jpg">
-        </div>
-        <div class="column">
-            Sports
-        </div>
-        <div class="column">
-            Clothes
-        </div>
-    </div> -->
-
-
 <script>
 import axios from 'axios'
 
@@ -111,9 +93,8 @@ img {
 
 .column {
     background-color: coral;
+    border-radius: 5%;
     margin: 20px;
     height: 250px;
-
-    /* display: inline-flex; */
 }
 </style>
