@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
         })
 
         console.log(matchedItems);
+				res.send(matchedItems);
 
     } catch (error) {
         console.log(error);
@@ -38,4 +39,4 @@ router.post('/', async (req, res) => {
 })
 
 
-module.exports = router, matchedItems;
+module.exports = router;
