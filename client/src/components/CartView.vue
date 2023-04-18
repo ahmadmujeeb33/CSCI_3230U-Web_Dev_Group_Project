@@ -42,7 +42,7 @@
   <script setup>
 import{onMounted,} from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
-import { getFirestore,getDoc,doc,deleteDoc,updateDoc,arrayUnion, deleteField} from "firebase/firestore";
+import { getFirestore,getDoc,doc,updateDoc, arrayUnion} from "firebase/firestore";
 import $ from "jquery";
 //import jquery from "jquery";
 
@@ -144,10 +144,10 @@ onMounted(()=>
   });
 
 
-  const removeFromcart = () => {
+  const removeFromcart = (event) => {
     const db = getFirestore();
     const auth = getAuth();
-    let id = $(this).attr("id")
+    let id = event.target.id
     console.log(id)
     
         
@@ -156,28 +156,29 @@ onMounted(()=>
                   const docRef = doc(db,"Items",id)
                   const docRef2 = doc(db,"user",user.uid)
                   const docSnap = await getDoc(docRef);
+                  const docSnap2 = await getDoc(docRef2);
                   
-          
-                  let cart = docSnap.data().cart
-                  let index = cart.indexOf(id)
+                  console.log(docSnap2.data())
+                  let cart = docSnap2.data().cart
+                  console.log(cart)
+                  
+                  let index = cart.indexOf(id.toString())
                   cart.splice(index,1)
+                  //console.log(cart)
 
-                  await deleteDoc(docRef2,{
-                    cart: deleteField()
+                  await updateDoc(docRef2,{
+                    cart: []
                   })
                   
                   cart.forEach(async item => {
                     await updateDoc(docRef2, {
                         cart:arrayUnion(item)
                     })
-                    console.log(item)
+                   
                   });
-                  
-
-
-
-                    
+                                      
                 }
+              $("#"+id).remove()
                 
                 
             });
