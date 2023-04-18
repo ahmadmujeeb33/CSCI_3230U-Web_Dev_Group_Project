@@ -52,7 +52,7 @@
         .then(()=>{
             console.log("Sucessful Sign in")
             
-            router.push('/products')
+            router.push('/')
         })
         .catch((error)=>
         {

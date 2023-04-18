@@ -2,13 +2,7 @@
     <html lang="en">
     
     <body>
-        <nav class="navbar is-dark">
-            <!-- Brand -->
-            <div class="navbar-brand">
-                <a class="navbar-item">
-                </a>
-            </div>
-        </nav>
+
     
         <div class="columns is-vcentered">
             
@@ -29,7 +23,7 @@
                     <div id="descr" class="info" ></div>
                     <br>
             <div v-if="logged_in"> 
-                    <div id="add" class="button" >Add to Cart</div>
+                    <div @click="addtocart" id="add" class="button" >Add to Cart</div>
                     <div  @click="favorite" id="favorite" class="button ">
                     
                         <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
@@ -47,7 +41,7 @@
             </div>
             <div class="column is-centered is-half">
                 <div class="box">
-                    <img id="product_image" class="center" src="" alt="">  
+                    <img id="product_image" class="center" src="" alt="" width="700" height="700">  
                 </div>
                 
             </div>
@@ -105,11 +99,7 @@
        
         },
 
-        async addCart(){
-            let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
-            await axios.put("/api/info/update_cart",data)
 
-            }
 
     
     }
@@ -117,9 +107,11 @@
     </script>
 
 <script setup>
+
+
 import{onMounted,  ref } from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
-import { getFirestore,getDoc,doc} from "firebase/firestore";
+import { getFirestore,getDoc,doc, arrayUnion, updateDoc} from "firebase/firestore";
 import store from "../store"
 import $ from "jquery";
 import * as d3 from 'd3'
@@ -127,6 +119,7 @@ import * as d3 from 'd3'
 
 const db = getFirestore();
 let id = store.state.product
+    id = "1u4VRJw7Qk53mNDRZgOc"
 
 const logged_in = ref(false)
 
@@ -263,6 +256,32 @@ onMounted(() => {
 
 
     });
+
+    const addtocart= () => {
+        const db = getFirestore();
+        const auth = getAuth();
+        
+            onAuthStateChanged(auth, async (user) => {
+                if(user){
+                    const docRef = doc(db, "user", user.uid);
+                    const docRef2 = doc(db,"Items",id)
+                    const docSnap = await getDoc(docRef);
+                    let cart = docSnap.data().cart
+                    cart.push(id)
+                    
+
+                    await updateDoc(docRef, {
+                        cart:arrayUnion(id)
+                    })
+                    
+                }
+                
+                
+            });
+
+        $("#"+id).remove();
+    
+};
 
 </script>
     <style>
