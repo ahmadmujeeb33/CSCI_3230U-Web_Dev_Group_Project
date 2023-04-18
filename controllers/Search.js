@@ -15,7 +15,6 @@ router.post('/', async (req, res) => {
         console.log("");
         let items = await main.db.collection("Items").get();
 
-        // let matchedItems = [];
         items.forEach((doc) => {
             for (let i = 0; i < searchArray.length; i++) {
                 let title = doc.data().title;
@@ -23,14 +22,14 @@ router.post('/', async (req, res) => {
 
                 if (searchArray[i].length >= 3 && title.includes(searchArray[i])) {
                     // console.log(doc.data().title)
-                    matchedItems.push(doc.data());
+                    matchedItems.push({ [doc.id]: doc.data() });
                     break;
                 }
             }
         })
 
         console.log(matchedItems);
-				res.send(matchedItems);
+        res.send(matchedItems);
 
     } catch (error) {
         console.log(error);

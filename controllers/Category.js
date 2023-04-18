@@ -18,15 +18,13 @@ router.post('/', async (req, res) => {
             category = category.toLowerCase();
 
             if (category == search) {
-                matchedItems.push(doc.data());
+                matchedItems.push({ [doc.id]: doc.data() });
             }
         })
 
         console.log(matchedItems);
         console.log("\n");
         console.log("------------------------------------------------------")
-
-
     } catch (error) {
         console.log(error);
     }
