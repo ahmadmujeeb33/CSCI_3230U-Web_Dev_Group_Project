@@ -290,7 +290,7 @@
 										</table>
 
 										<!-- Place Order Button -->
-										<button class="button is-warning is-pulled-right">Place Order</button>
+										<button class="button is-warning is-pulled-right" @click="clear_cart" >Place Order</button>
 									<!-- End column -->
 									</div>
 								<!-- End all columns -->
@@ -311,6 +311,10 @@
 
 <script setup>
 import $ from 'jquery'
+import { getAuth,onAuthStateChanged, } from "firebase/auth";
+import { getFirestore,doc,updateDoc} from "firebase/firestore";
+import { useRouter } from 'vue-router'
+
 
 $(document).ready(function () {
 	// hide all but 1st level
@@ -387,6 +391,33 @@ function clickPrev(event) {
 	//show next card
 	nextSection.show(speed);
 }
+
+
+const router = useRouter();
+const db = getFirestore();
+let auth = getAuth();
+
+const clear_cart = () => {
+    auth=getAuth();
+
+    onAuthStateChanged(auth,async (user)=>{
+		if(user)
+		{
+		const docRef = doc(db, "user", user.uid);
+		
+            await updateDoc(docRef, {
+            cart:[]
+          });
+		
+
+		
+
+		}
+		alert ("Order Confirmed");
+		router.push('/')
+
+    });
+};
 
 </script>
 
