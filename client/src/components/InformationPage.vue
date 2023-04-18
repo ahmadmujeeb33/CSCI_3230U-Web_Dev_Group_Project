@@ -57,8 +57,11 @@
     </template>
     
     <script>
-    //import id from 
+     
     import axios from 'axios'
+    import{onMounted,} from "vue"
+    import { getAuth,onAuthStateChanged, } from "firebase/auth";
+    import { getFirestore,getDoc,doc} from "firebase/firestore";
     
     export default {
       name: 'InformationPage',
@@ -101,6 +104,39 @@
         async addCart(){
             let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
             await axios.put("/api/info/update_cart",data)
+            const db = getFirestore();
+            let auth = getAuth();
+            },
+            async getUerID(){
+                onMounted1(()=>
+                { 
+                    auth=getAuth1();
+                    onAuthStateChanged1(auth,async (user)=>{
+                        if(user)
+                        {
+
+                            const docRef = doc1(db, "Items", id);
+                            const docSnap = await getDoc1(docRef);
+
+                            if (docSnap.exists())
+                            {
+
+                            
+                            } 
+                            else 
+                            {
+                            // docSnap.data() will be undefined in this case
+                            console.log("No such document!");
+                            }
+                        }
+                        else
+                        {
+                            console.log("null")
+                        }
+
+
+                })
+            })
 
         }
     

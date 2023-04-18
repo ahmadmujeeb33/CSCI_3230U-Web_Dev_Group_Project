@@ -51,7 +51,11 @@ router.post('/delete_favorites',async(req,res)=>{
 
 router.put('/update_cart',async(req,res)=>{
   console.log(req.body)
-  await main.db.collection("users").
+  userId = req.body.userId
+
+  await main.db.collection('User').where('userId', '==', userId).get().then(async (snapshot) => {
+
+  })
 
 })
 
