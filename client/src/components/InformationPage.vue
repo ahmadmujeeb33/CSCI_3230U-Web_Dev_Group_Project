@@ -3,76 +3,114 @@
     <html lang="en">
     
     <body>
-
+        <nav class="navbar is-dark">
+            <!-- Brand -->
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                </a>
+            </div>
+        </nav>
     
         <div class="columns is-vcentered">
             
-        </div>
-        <div class="column is-centered is-half">
-            <div class="box">
-                <div id="title" class="title">Title</div>
-                <br>
-                <div id="price" class="info"><label>Price:</label> 123123</div>
-                <br>
-                <div id="seller" class="info"><label>Seller:</label> your mom</div>
-                <br>
-                <div id="categories" class="info"><label>categories:</label></div>
-                <br>
-                <div id="descripition" class="info" ><label>Descripition:</label> asd a </div>
-                <br>
-                <button id="add" class="info" >Add to Cart</button>
-                <button  @click="favorite" id="favorite" class="info"><img src="../assets/heartFilled.png" alt="" id ="favoriteImg"></button>
-                <br>
-                <div id="reviews" class="info">
+            <div class="column is-centered is-half">
+                <div class="box">
                     
+    
+                    <!-- <h1 v-if="awesome">Vue is awesome!</h1>
+                    <h1 v-else>Oh no 😢</h1> -->
+                    <div id="title" class="title">Title</div>
+                    <br>
+                    <div id="price" class="info"><label>Price:</label> 123123</div>
+                    <br>
+                    <div id="seller" class="info"><label>Seller:</label> your mom</div>
+                    <br>
+                    <div id="categories" class="info"><label>categories:</label></div>
+                    <br>
+                    <div id="descripition" class="info" ><label>Descripition:</label> asd a </div>
+                    <br>
+                    <div id="add" class="button " >Add to Cart</div>
+                    <div  @click="favorite" id="favorite" class="button ">
+                        <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
+                        <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25">
                 </div>
-
+                    <br>
+                    <div id="reviews" class="info">
+                        
+                    </div>
+    
+                </div>
             </div>
+            <div class="column is-centered is-half">
+                <div class="box">
+                    <img id="product_image" class="center" src="https://images.unsplash.com/photo-1551509134-2f9d4ec80a9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80" alt="">  
+                </div>
+                
+            </div>
+    
         </div>
-
-    </div>
-
     
-
-</body>
-
-</html>
-</template>
-
-<script>
-//import id from 
-
-export default {
-  name: 'InformationPage',
-
-  methods: {
-    favorite(){
-    // let img = document.getElementById("favoriteImg");
-
-    // if (img.src == "../assets/heartEmpty.png"){
-    //     img.src = "../assets/heartFilled.png"
-    // }else{
-    //     img.src = "../assets/heartEmpty.png"
-    // }
+        
+    
+    </body>
+    
+    </html>
+    </template>
+    
+    <script>
+    //import id from 
+    import axios from 'axios'
+    
+    export default {
+      name: 'InformationPage',
+      data() {
+        return {
+          favorites:false,     
+          
+        }
+        
+    
+    
+      },
+    
+      async created(){
+        let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
+        this.favorites = await axios.post("/api/info/check_favorites",data)
+    
+      },
+    
+      methods: {
+        async toFavorite(){
+            let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
+            this.favorites = true
+            console.log("in ehreee")
+            await axios.post("/api/info/add_favorites",data)
+    
+      
+        },
+    
+    
+        async unFavorite(){
+            let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
+            this.favorites = false
+            console.log("in ehreee")
+            await axios.post("/api/info/delete_favorites",data)
+    
+       
+        }
+    
     }
-
-}
-}
-
-
-
-
-
-
+    }
     
+    
+    
+    import * as d3 from 'd3'
     var parsedData = []
     const margin = 50;
     const width = 400;
     const height = 300;
     const chartWidth = width - 2 * margin;
     const chartHeight = height - 2 * margin;
-    
-    
     
     
     window.onload = function(){
@@ -154,10 +192,13 @@ export default {
         .delay((data,index) => index * 50);
     }
     
+    
     </script>
     
     <style>
     @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+    
+    
     .container{
         align-items: top;
         justify-content: left;
@@ -185,5 +226,9 @@ export default {
         justify-content: left;
         display: flex;
         border-bottom: 0.1em solid ;
+    }
+    
+    .starImage{
+        cursor: pointer;
     }
     </style>
