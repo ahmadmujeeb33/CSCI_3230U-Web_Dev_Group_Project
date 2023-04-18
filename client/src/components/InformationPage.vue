@@ -121,16 +121,18 @@
 import{onMounted,  ref } from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
 import { getFirestore,getDoc,doc} from "firebase/firestore";
+import store from "../store"
 import $ from "jquery";
 import * as d3 from 'd3'
 
 
 const db = getFirestore();
-let id = "1u4VRJw7Qk53mNDRZgOc"
+let id = store.state.product
 
 const logged_in = ref(false)
 
 const auth = getAuth();
+
 
 onMounted(() => {
     
