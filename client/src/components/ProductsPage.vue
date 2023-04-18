@@ -16,7 +16,7 @@
 			<ProductsPageSidebar/>
 		</div>
 		<!-- Show product grid in remaining space -->
-		<div class="column productGrid">
+		<div class="column productGrid" v-for="item in allitems" :key="item.id">
 			
 					<!-- Product Grid -->
 					<section>
@@ -39,7 +39,7 @@
                     </footer>
                 </div>
 
-                <div class="card">
+                <!-- <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
                             This is a generic card in a grid
@@ -69,7 +69,7 @@
                     <footer class="card-footer">
                         <a href="#" class="card-footer-item">Check it out!</a>
                     </footer>
-                </div>
+                </div> -->
 
 						<!-- End of Product Cards -->
             </div>
