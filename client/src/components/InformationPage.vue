@@ -12,16 +12,10 @@
         </nav>
     
         <div class="columns is-vcentered">
+            
             <div class="column is-centered is-half">
                 <div class="box">
-                    <img id="product_image" class="center" src="https://images.unsplash.com/photo-1551509134-2f9d4ec80a9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80" alt="">  
-                </div>
-                
-            </div>
-            <div class="column is-centered is-half">
-                <div class="box">
-                    <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
-                    <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25">
+                    
     
                     <!-- <h1 v-if="awesome">Vue is awesome!</h1>
                     <h1 v-else>Oh no 😢</h1> -->
@@ -35,14 +29,22 @@
                     <br>
                     <div id="descripition" class="info" ><label>Descripition:</label> asd a </div>
                     <br>
-                    <button id="add" class="info" >Add to Cart</button>
-                    <button  @click="favorite" id="favorite" class="info"><img src="../assets/heartFilled.png" alt="" id ="favoriteImg"></button>
+                    <div id="add" class="button " >Add to Cart</div>
+                    <div  @click="favorite" id="favorite" class="button ">
+                        <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
+                    <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25"></div>
                     <br>
                     <div id="reviews" class="info">
                         
                     </div>
     
                 </div>
+            </div>
+            <div class="column is-centered is-half">
+                <div class="box">
+                    <img id="product_image" class="center" src="https://images.unsplash.com/photo-1551509134-2f9d4ec80a9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80" alt="">  
+                </div>
+                
             </div>
     
         </div>
@@ -64,8 +66,8 @@
         return {
           favorites:false,     
           
-    
         }
+        
     
     
       },
@@ -212,10 +214,17 @@
         justify-self: auto;
         display: flex;
     }
+    .btn{
+        size: 200;
+        justify-content: left;
+        display: flex;
+    
+    }
     .info{
         size: 200;
         justify-content: left;
         display: flex;
+        border-bottom: 0.1em solid ;
     }
     
     .starImage{
