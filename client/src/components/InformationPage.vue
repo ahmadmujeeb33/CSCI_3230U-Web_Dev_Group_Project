@@ -1,5 +1,4 @@
 <template>
-    <!DOCTYPE html>
     <html lang="en">
     
     <body>
@@ -32,7 +31,8 @@
                     <div id="add" class="button " >Add to Cart</div>
                     <div  @click="favorite" id="favorite" class="button ">
                         <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
-                    <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25"></div>
+                        <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25">
+                </div>
                     <br>
                     <div id="reviews" class="info">
                         
@@ -73,8 +73,9 @@
       },
     
       async created(){
+        console.log("thisssssssss")
         let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
-        this.favorites = await axios.post("/api/info/check_favorites",data)
+        this.favorites = await axios.get(`/api/info/check_favorites/${data.userId}/${data.itemId}`)
     
       },
     
@@ -93,7 +94,7 @@
             let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
             this.favorites = false
             console.log("in ehreee")
-            await axios.post("/api/info/delete_favorites",data)
+            await axios.delete(`/api/info/delete_favorites/${data.userId}/${data.itemId}`)
     
        
         }
