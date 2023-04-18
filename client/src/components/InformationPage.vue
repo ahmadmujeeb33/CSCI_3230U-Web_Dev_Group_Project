@@ -102,8 +102,9 @@
     }
     
     
-    
+    import store from '../store'
     import * as d3 from 'd3'
+		import $ from 'jquery'
     var parsedData = []
     const margin = 50;
     const width = 400;
@@ -111,9 +112,10 @@
     const chartWidth = width - 2 * margin;
     const chartHeight = height - 2 * margin;
     
-    
-    window.onload = function(){
-        let data = [1,2,3,4,10];
+    //window.onload = function(){
+		$(document).ready(function () {
+				console.log("This console.log is in the InformationPage: ", store.state.product);
+				let data = [1,2,3,4,10];
         let sum = data.reduce((partialSum, a) => partialSum + a, 0);
         let freq = []
         data.forEach(d => {
@@ -189,7 +191,7 @@
         .attr('y', (data) => yScale(data.freq))
         .duration(1000)
         .delay((data,index) => index * 50);
-    }
+    });
     
     
     </script>
