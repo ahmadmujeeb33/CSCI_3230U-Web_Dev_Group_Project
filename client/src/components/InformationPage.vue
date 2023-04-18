@@ -28,15 +28,16 @@
                     <br>
                     <div id="descr" class="info" ></div>
                     <br>
-                    <div id="add" class="button " >Add to Cart</div>
+            <div v-if="logged_in"> 
+                    <div id="add" class="button" >Add to Cart</div>
                     <div  @click="favorite" id="favorite" class="button ">
+                    
                         <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
-<<<<<<< HEAD
-                        <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25"></div>
-=======
+
                         <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25">
                 </div>
->>>>>>> main
+            </div>
+
                     <br>
                     <div id="reviews" class="info">
                         
@@ -63,9 +64,7 @@
     <script>
      
     import axios from 'axios'
-    import{onMounted,} from "vue"
-    import { getAuth,onAuthStateChanged, } from "firebase/auth";
-    import { getFirestore,getDoc,doc} from "firebase/firestore";
+
     
     export default {
       name: 'InformationPage',
@@ -109,41 +108,9 @@
         async addCart(){
             let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
             await axios.put("/api/info/update_cart",data)
-            const db = getFirestore();
-            let auth = getAuth();
-            },
-            async getUerID(){
-                onMounted1(()=>
-                { 
-                    auth=getAuth1();
-                    onAuthStateChanged1(auth,async (user)=>{
-                        if(user)
-                        {
 
-                            const docRef = doc1(db, "Items", id);
-                            const docSnap = await getDoc1(docRef);
+            }
 
-                            if (docSnap.exists())
-                            {
-
-                            
-                            } 
-                            else 
-                            {
-                            // docSnap.data() will be undefined in this case
-                            console.log("No such document!");
-                            }
-                        }
-                        else
-                        {
-                            console.log("null")
-                        }
-
-
-                })
-            })
-
-        }
     
     }
     }
@@ -151,24 +118,42 @@
     </script>
 
 <script setup>
-import{onMounted,} from "vue"
+import{onMounted,  ref } from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
 import { getFirestore,getDoc,doc} from "firebase/firestore";
 import $ from "jquery";
 import * as d3 from 'd3'
 
+
 const db = getFirestore();
-let auth = getAuth();
-let id = "DNGah477roSUvSbvDw0x"
+let id = "1u4VRJw7Qk53mNDRZgOc"
 
-onMounted(()=>
+const logged_in = ref(false)
+
+const auth = getAuth();
+
+onMounted(() => {
+    
+
+    onAuthStateChanged(auth, (user) => {
+
+
+        if (user) {
+            logged_in.value = true;
+        }
+        else {
+            logged_in.value = false;
+        }
+
+    });
+
+});
+
+ onMounted(async ()=>
   {
-    auth=getAuth();
 
-    onAuthStateChanged(auth,async (user)=>{
-      if(user)
-      {
 
+    
         const docRef = doc(db, "Items", id);
         const docSnap = await getDoc(docRef);
 
@@ -180,8 +165,7 @@ onMounted(()=>
           $("#price").text("Price:  $"+docSnap.data().price)
           $("#seller").text("Seller:  "+docSnap.data().name)
           $("#descr").text("Description:  "+docSnap.data().description)
-          $("#cate").text("Categories: "+docSnap.data().catagories
-)
+          $("#cate").text("Categories: "+docSnap.data().catagories)
 
           $("#product_image").attr("src",docSnap.data().url)
         
@@ -275,15 +259,10 @@ onMounted(()=>
           // docSnap.data() will be undefined in this case
           console.log("No such document!");
         }
-      }
-      else
-      {
-        console.log("null")
-      }
+
 
     });
 
-  });
 </script>
     <style>
     @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";

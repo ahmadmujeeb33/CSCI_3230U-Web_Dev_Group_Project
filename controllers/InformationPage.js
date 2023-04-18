@@ -32,14 +32,8 @@ router.post('/add_favorites',async(req,res)=>{
 })
 
 
-<<<<<<< HEAD
-
-router.post('/delete_favorites',async(req,res)=>{
-    console.log(req.body)
-=======
 router.delete('/delete_favorites/:userId/:itemId',async(req,res)=>{
     console.log("delete")
->>>>>>> main
 
     await main.db.collection('Favorite').get().then((snapshot) => {
         snapshot.forEach((doc) => {
