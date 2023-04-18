@@ -5,8 +5,8 @@
       <!-- Main homepage content -->
       <section class="section">
         <div class="container">
-          <h1 class="title">Welcome to NFTees!</h1>
-          <p class="subtitle">The premier NFT Tee-shirt acquisition hub!</p>
+          <h1 class="title">Welcome to NFTees</h1>
+          <p class="subtitle">The premier NFT Tee-shirt acquisition hub</p>
         </div>
       </section>
   
@@ -231,5 +231,25 @@
     }
     .card {
       height: max-content;
+    }
+
+    section {
+        background-color: antiquewhite;
+    }
+
+    .card * {
+        background: rgb(232, 104, 25);
+    }
+
+    a:link, a:visited, a:active {
+        color: #FFDAB3;
+    }
+
+    a:hover {
+        color: white;
+    }
+
+    * {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     }
   </style>
