@@ -34,8 +34,6 @@
     }
   }
 
-  
-
   </script>
 
 
@@ -44,7 +42,7 @@
   <script setup>
 import{onMounted,} from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
-import { getFirestore,getDoc,doc} from "firebase/firestore";
+import { getFirestore,getDoc,doc,deleteDoc,updateDoc,arrayUnion, deleteField} from "firebase/firestore";
 import $ from "jquery";
 //import jquery from "jquery";
 
@@ -104,6 +102,9 @@ onMounted(()=>
                   infodiv.append(priceDiv)
                 let removed = $('<div>').attr('class','column button') 
                   removed.text("Remove")
+                  removed.attr("id",id)
+                  removed.on("click", removeFromcart);
+                  
 
 
                 item.append(imgDiv)
@@ -142,7 +143,50 @@ onMounted(()=>
 
   });
 
-  </script>
+
+  const removeFromcart = () => {
+    const db = getFirestore();
+    const auth = getAuth();
+    let id = $(this).attr("id")
+    console.log(id)
+    
+        
+            onAuthStateChanged(auth, async (user) => {
+                if(user){
+                  const docRef = doc(db,"Items",id)
+                  const docRef2 = doc(db,"user",user.uid)
+                  const docSnap = await getDoc(docRef);
+                  
+          
+                  let cart = docSnap.data().cart
+                  let index = cart.indexOf(id)
+                  cart.splice(index,1)
+
+                  await deleteDoc(docRef2,{
+                    cart: deleteField()
+                  })
+                  
+                  cart.forEach(async item => {
+                    await updateDoc(docRef2, {
+                        cart:arrayUnion(item)
+                    })
+                    console.log(item)
+                  });
+                  
+
+
+
+                    
+                }
+                
+                
+            });
+
+  }
+
+
+
+</script>
   
   <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";

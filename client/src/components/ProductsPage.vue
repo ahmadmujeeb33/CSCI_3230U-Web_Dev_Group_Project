@@ -15,7 +15,7 @@
 			<ProductsPageSidebar/>
 		</div>
 		<!-- Show product grid in remaining space -->
-		<div class="column productGrid" v-for="item in allitems" :key="item.id">
+		<div class="column productGrid">
 			
 					<!-- Product Grid -->
 					<section>
@@ -62,7 +62,7 @@
                     </footer>
                 </div>
 
-                <!-- <div class="card">
+                <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
                             This is a generic card in a grid
@@ -92,7 +92,7 @@
                     <footer class="card-footer">
                         <a href="#" class="card-footer-item">Check it out!</a>
                     </footer>
-                </div> -->
+                </div>
 
 						<!-- End of Product Cards -->
             </div>
@@ -109,17 +109,14 @@
 import ProductsPageSidebar from './ProductsPageSidebar.vue'
 import store from '../store'
 import $ from 'jquery'
-
 function productClick(event){
 	console.log("event.target.id",event.target.id);
 	store.commit('updateProduct', event.target.id);
 	window.open("/InformationPage", "_self");
 }
-
 // const products = store.state.message;
 // console.log(products);
 $(document).ready(function () {
-
 	$("#productGrid").replaceWith("<div class='container' id='productGrid'></div>");
 	for (var product of store.state.message) {
 		for(var key in product) {
@@ -128,16 +125,12 @@ $(document).ready(function () {
 			
 			//$("#"+key).click(store.commit('updateProduct', key));
 			document.getElementById(key).addEventListener("click", productClick); //how to add function parameter?
-
 		}
 	}
-
 });
 //store.commit('updateProduct', "Placeholder.  This will be an single product dictionary with all the product info.");
 // window.open("/InformationPage", "_self");
 // console.log("log after window.open call");
-
-
 </script>
 
 <style>
@@ -155,17 +148,14 @@ margin-top: 60px;
 	padding: 10px;
 	margin-bottom: 10px;
 }
-
 .is-20px {
   width: 20px;
 }
-
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 0.5em;
 }
-
 .productGrid {
 	padding: 10px;
 }
