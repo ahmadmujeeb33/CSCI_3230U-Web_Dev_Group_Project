@@ -105,6 +105,7 @@
 
 <script>
 import axios from 'axios'
+import store from '../store'
 // import matchedItems from './../../../controllers/Search.js'
 
 export default {
@@ -125,7 +126,11 @@ export default {
                 // console.log(valuesCombinedWithPlus);
                 // let response = await axios.get(`/api/search/${valuesCombinedWithPlus}`);
                 let response = await axios.post('/api/search', { "value": valuesCombinedWithPlus });
+								store.commit('updateMessage', response.data);
+
                 console.log(response);
+								console.log("message",store.state.message);
+								window.open("/Products", "_self");
             } catch (error) {
                 console.log(error);
             }

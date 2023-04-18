@@ -84,11 +84,16 @@
 
 <script setup>
 import ProductsPageSidebar from './ProductsPageSidebar.vue'
-import data from "./../../../controllers/data.js";
+//import data from "./../../../controllers/data.js";
+// const myModule = require('./../../../controllers/data.js');
+// const data = myModule.data;
 
-console.log("product1: ",data.product1);
-console.log("product1 title: ",data.product1.title);
-
+// console.log("product1: ",data.product1);
+// console.log("product1 title: ",data.product1.title);
+import store from '../store'
+console.log("store.state.message in products page test:",store.state.message);
+store.commit('updateProduct', "Placeholder.  This will be an single product dictionary with all the product info.");
+window.open("/InformationPage", "_self");
 </script>
 
 <style>
