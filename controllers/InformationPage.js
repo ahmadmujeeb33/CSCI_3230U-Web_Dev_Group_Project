@@ -48,4 +48,14 @@ router.delete('/delete_favorites/:userId/:itemId',async(req,res)=>{
     
 })
 
+router.put('/update_cart',async(req,res)=>{
+  console.log(req.body)
+  userId = req.body.userId
+
+  await main.db.collection('User').where('userId', '==', userId).get().then(async (snapshot) => {
+
+  })
+
+})
+
 module.exports = router;
