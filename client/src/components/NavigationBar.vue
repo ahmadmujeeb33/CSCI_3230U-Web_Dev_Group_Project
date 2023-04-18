@@ -42,9 +42,9 @@
                 </router-link>
 
                   <!-- Item : products -->
-                  <router-link class="navbar-item" to="/products">
+                  <!-- <router-link class="navbar-item" to="/products">
                     Products
-                </router-link>
+                </router-link> -->
 
                 <!-- Item : Add Product -->
                 <router-link class="navbar-item" to="/AddProduct" v-if="logged_in">
