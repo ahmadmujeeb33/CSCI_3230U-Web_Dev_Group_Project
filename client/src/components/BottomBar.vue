@@ -127,4 +127,9 @@ export default {
     padding: 10px;
     font-size: 15px;
 }
+
+/* Added CSS */
+.footer {
+    background-color: antiquewhite;
+}
 </style>

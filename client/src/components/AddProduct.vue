@@ -179,6 +179,10 @@ export default {
     padding-top: 30px;
   }
   
+  /* Added CSS Styling */
+  * {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  }
 
 </style>
  

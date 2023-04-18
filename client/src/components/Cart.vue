@@ -1,8 +1,5 @@
 <template>
-<!DOCTYPE html>
-<html lang="en">
 
-<body>
     <nav class="navbar is-dark">
         <!-- Brand -->
         <div class="navbar-brand">
@@ -16,11 +13,6 @@
 
     </div>
 
-    
-
-</body>
-
-</html>
 </template>
 
 

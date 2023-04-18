@@ -1,85 +1,85 @@
 <template>
-
 	<router-view/>
 	<!-- Search results header -->
-	<section class="hero">
-			<p class="title is-6 left-align">
-				<b>Search Results:</b> 123 Products Found
-			</p>
-		
-	</section>
+    <div id="background">
+	    <section class="hero">
+	    		<p class="title is-6 left-align">
+	    			<b>Search Results:</b> 123 Products Found
+	    		</p>
+            
+	    </section>
 
-	<!-- Display Products in Grid -->
-	<div class="columns"> <!-- "columns mt-5 is-8 is-variable" -->
-		<!-- Filter menu -->
-		<div class="column is-one-fifth"> <!-- column is-4-tablet is-3-desktop -->
-			<ProductsPageSidebar/>
-		</div>
-		<!-- Show product grid in remaining space -->
-		<div class="column productGrid">
-			
-					<!-- Product Grid -->
-					<section>
-            <div class="container">
-							
-							<!-- Product Cards -->
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="../assets/football.png">
-                        </figure>
+	    <!-- Display Products in Grid -->
+	    <div class="columns"> <!-- "columns mt-5 is-8 is-variable" -->
+	    	<!-- Filter menu -->
+	    	<div class="column is-one-fifth"> <!-- column is-4-tablet is-3-desktop -->
+	    		<ProductsPageSidebar/>
+	    	</div>
+	    	<!-- Show product grid in remaining space -->
+	    	<div class="column productGrid">
+            
+	    				<!-- Product Grid -->
+	    				<section>
+                <div class="container">
+                
+	    						<!-- Product Cards -->
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                This is a generic card in a grid
+                            </p>
+                        </header>
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="../assets/football.png">
+                            </figure>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Check it out!</a>
+                        </footer>
                     </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
 
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="../assets/football.png">
-                        </figure>
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                This is a generic card in a grid
+                            </p>
+                        </header>
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="../assets/football.png">
+                            </figure>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Check it out!</a>
+                        </footer>
                     </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
 
-								<div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="../assets/football.png">
-                        </figure>
+	    							<div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                This is a generic card in a grid
+                            </p>
+                        </header>
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="../assets/football.png">
+                            </figure>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Check it out!</a>
+                        </footer>
                     </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
+
+	    					<!-- End of Product Cards -->
                 </div>
-
-						<!-- End of Product Cards -->
-            </div>
-        </section>
+            </section>
 
 
 
-		</div>
-	</div>
-
+	    	</div>
+	    </div>
+    </div>
 </template>
 
 <script setup>
@@ -91,14 +91,15 @@ console.log("product1 title: ",data.product1.title);
 
 </script>
 
-<style>
+<style scoped>
+
 #app {
-font-family: Avenir, Helvetica, Arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-align: center;
-color: #2c3e50;
-margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
 }
 .left-align {
 	text-align: left;
@@ -120,4 +121,26 @@ margin-top: 60px;
 .productGrid {
 	padding: 10px;
 }
+
+/* Added CSS Styling */
+#background {
+    background-color: antiquewhite;
+}
+
+#background * {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited, a:active {
+    color: #FFDAB3;
+}
+
+a:hover {
+    color: white;
+}
+
+.card * {
+    background-color: rgb(232, 104, 25);
+}
+
 </style>

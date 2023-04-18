@@ -6,7 +6,7 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <FavoritesList /> -->
   <!-- <AddProductVue /> -->
-  <div>
+  <div id="mainApp">
     <NavigationBar></NavigationBar>
     <router-view />
     
@@ -52,5 +52,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
+}
+
+#mainApp {
+  background-color: antiquewhite;
 }
 </style>
