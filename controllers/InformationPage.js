@@ -32,6 +32,7 @@ router.post('/add_favorites',async(req,res)=>{
 })
 
 
+
 router.post('/delete_favorites',async(req,res)=>{
     console.log(req.body)
 
@@ -46,6 +47,12 @@ router.post('/delete_favorites',async(req,res)=>{
 
     res.send(true)
     
+})
+
+router.put('/update_cart',async(req,res)=>{
+  console.log(req.body)
+  await main.db.collection("users").
+
 })
 
 module.exports = router;
