@@ -3,12 +3,7 @@
       <!-- Main navbar for entire website -->
   
       <!-- Main homepage content -->
-        <section class="section">
-            <div class="container">
-                <h1 class="title">Welcome to NFTees</h1>
-                <p class="subtitle">The premier NFT Tee-shirt acquisition hub</p>
-            </div>
-        </section>
+        
       
         <!-- Carousel with rotating links -->
         <section>
@@ -23,6 +18,13 @@
                 </template>
             </carousel>
         </section>
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title">Welcome to NFTees</h1>
+                <p class="subtitle">The premier NFT Tee-shirt acquisition hub</p>
+            </div>
+        </section>
       
         <!-- Grid of additional links to popular searches -->
         <section>
@@ -30,7 +32,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            Go bananas for these latest Exhausted Orangutan NFTs!
                         </p>
                     </header>
                     <div class="card-image">
@@ -46,7 +48,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            The truth is out there! Get some proof with the Squatch NFT line!
                         </p>
                     </header>
                     <div class="card-image">
@@ -62,7 +64,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            Feel the freedom in your veins with the President Gaming collection!
                         </p>
                     </header>
                     <div class="card-image">
@@ -78,7 +80,23 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            Consume the product! Check out Murval Studios' latest cash grab!
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="../assets/Hottest_NFTees.png">
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Check it out!</a>
+                    </footer>
+                </div>
+
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Ever wanted an octopus on your shirt? Now's your chance!
                         </p>
                     </header>
                     <div class="card-image">
@@ -94,7 +112,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            The robots are taking over, and so's this NFT!
                         </p>
                     </header>
                     <div class="card-image">
@@ -110,7 +128,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            You won't believe what these trolls are doing!!!
                         </p>
                     </header>
                     <div class="card-image">
@@ -126,7 +144,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            It's time to get meta! Why not put a shirt on your shirt?
                         </p>
                     </header>
                     <div class="card-image">
@@ -142,7 +160,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
+                            Due to popular demand, "Hank" the 404 page man has become an NFT!
                         </p>
                     </header>
                     <div class="card-image">
@@ -158,23 +176,7 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            This is a generic card in a grid
-                        </p>
-                    </header>
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="../assets/WIP.png">
-                        </figure>
-                    </div>
-                    <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Check it out!</a>
-                    </footer>
-                </div>
-
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            This is a generic card in a grid
+                            Check out the officially sponsored Pepis brand NFTs!
                         </p>
                     </header>
                     <div class="card-image">
