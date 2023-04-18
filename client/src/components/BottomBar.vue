@@ -121,8 +121,6 @@ export default {
 }
 
 .flex-container>div {
-    /* background-color: #f1f1f1; */
-    /* width: 150px; */
     margin: 10px;
     padding: 10px;
     font-size: 15px;
