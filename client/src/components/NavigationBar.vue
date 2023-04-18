@@ -193,7 +193,7 @@ onMounted(() => {
 
 const sign_out = () => {
     signOut(auth).then(() => {
-        router.push('/products')
+        router.push('/')
 
     });
 };
