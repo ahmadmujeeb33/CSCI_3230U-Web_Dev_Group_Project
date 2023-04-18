@@ -42,17 +42,14 @@
 import ProductsPageSidebar from './ProductsPageSidebar.vue'
 import store from '../store'
 import $ from 'jquery'
-
 function productClick(event){
 	console.log("event.target.id",event.target.id);
 	store.commit('updateProduct', event.target.id);
 	window.open("/InformationPage", "_self");
 }
-
 // const products = store.state.message;
 // console.log(products);
 $(document).ready(function () {
-
 	$("#productGrid").replaceWith("<div class='container' id='productGrid'></div>");
 	for (var product of store.state.message) {
 		for(var key in product) {
@@ -70,7 +67,6 @@ $(document).ready(function () {
 			$(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
 		}
 	}
-
 });
 
 
@@ -91,17 +87,14 @@ margin-top: 60px;
 	padding: 10px;
 	margin-bottom: 10px;
 }
-
 .is-20px {
   width: 20px;
 }
-
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 0.5em;
 }
-
 .productGrid {
 	padding: 10px;
 } */
