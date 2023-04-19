@@ -119,7 +119,7 @@ import * as d3 from 'd3'
 
 const db = getFirestore();
 let id = store.state.product
-    id = "1u4VRJw7Qk53mNDRZgOc"
+    id = "0gUtlIZULNMuqnFkFVy8"
 
 const logged_in = ref(false)
 
@@ -258,6 +258,8 @@ onMounted(() => {
     });
 
     const addtocart= () => {
+        alert("added to cart");
+
         const db = getFirestore();
         const auth = getAuth();
         
@@ -279,7 +281,7 @@ onMounted(() => {
                 
             });
 
-        $("#"+id).remove();
+        
     
 };
 
