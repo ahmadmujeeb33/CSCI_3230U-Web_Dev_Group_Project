@@ -1,7 +1,7 @@
 <template>
 
 	<router-view/>
-	<div id="background">
+	<div class="background">
 		<!-- Search results header -->
 		<section class="hero">
 				<p class="title is-6 left-align mb-0">
@@ -129,7 +129,7 @@ $(document).ready(function () {
 			$(".card").css({"height": "max-content"});
 			$(".card *").css({"background": "rgb(232, 104, 25)"});
 		
-			$("#productGrid").find("a:link, a:visited, a:active").css( "color", "#FFDAB3" );
+			$("#productGrid").find("a:link, a:visited, a:active, a").css( "color", "#FFDAB3" );
 			$("#productGrid").find("a:hover").css( "color", "white" );
 
 			$(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
@@ -191,20 +191,20 @@ $(document).ready(function () {
 }
 
 /* Added CSS Styling */
-#background {
+.background {
     background-color: antiquewhite;
 }
 
-#background * {
+.background * {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-a:link, a:visited, a:active {
-    color: #FFDAB3;
+a:link, a:visited, a:active, a {
+	color: #FFDAB3;
 }
 
 a:hover {
-    color: white;
+	color: white;
 }
 
 .card * {

@@ -1,7 +1,8 @@
 <template>
     <html lang="en">
     
-    <body>
+    <div class="background">
+		<body>
 
     
         <div class="columns is-vcentered">
@@ -49,6 +50,7 @@
         
     
     </body>
+		</div>
     
     </html>
     </template>
@@ -215,12 +217,14 @@ onMounted(() => {
                     const docRef = doc(db, "user", user.uid);
                     const docRef2 = doc(db,"Items",id)
                     const docSnap = await getDoc(docRef);
+										const docSnap2 = await getDoc(docRef2);
                     let cart = docSnap.data().cart
                     cart.push(id)
                     
                     await updateDoc(docRef, {
                         cart:arrayUnion(id)
                     })
+										alert(docSnap2.data().title+" added to cart");
                     
                 }
                 

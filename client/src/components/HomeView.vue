@@ -1,5 +1,5 @@
 <template>
-    <div>  
+    <div class="background">  
       <!-- Carousel with rotating links -->
       <section>
         <carousel :items-to-show="1.5" :wrap-around="true" :autoplay="6000">

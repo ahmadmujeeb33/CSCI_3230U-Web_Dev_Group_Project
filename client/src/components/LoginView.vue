@@ -2,8 +2,8 @@
     <div class="login">
         
         <div class="columns is-centered">
-        <form class="box" @submit.prevent="sign_in">
-            <h1> Sign IN</h1>
+        <form class="box mt-5 title-is-5" @submit.prevent="sign_in">
+            <h1 class="title is-5">Login</h1>
 
             <div class="field">
                 <label class="label">Email: </label>
@@ -23,7 +23,7 @@
            
             
             <div>
-                <button class="button" @click="submit">Sign in</button>
+                <button class="button" @click="submit">Login</button>
             </div>
             <p v-if="sign_in_error">{{sign_in_error}}</p>
         </form>
@@ -59,7 +59,7 @@
             console.log(error.code)
             switch (error.code) {
                 case "auth/invalid-email":
-                    sign_in_error.value= " invalid email"
+                    sign_in_error.value= "Invalid email"
                     break;
 
                 case "auth/user-not-found":
@@ -67,7 +67,7 @@
                     break;
 
                 case "auth/wrong-password":
-                    sign_in_error.value= "wrong password"
+                    sign_in_error.value= "Wrong password"
                     break;
         
                 default:

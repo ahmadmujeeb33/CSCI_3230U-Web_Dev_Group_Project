@@ -53,4 +53,9 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
 }
+
+.background{
+	background-color: antiquewhite;
+	height: 125vh;
+}
 </style>

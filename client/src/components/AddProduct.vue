@@ -1,7 +1,7 @@
 
 
 <template >
-  <div class="pageContainer">
+  <div class="background">
     <div class="titleContainer">
       <div class="field is-horizontal ">
         <div class="field-label is-normal">
@@ -79,7 +79,7 @@
 
       <div class="field is-horizontal  ">
         <div class="field-label is-normal">
-          <label class="label">Name</label>
+          <label class="label">Seller</label>
         </div>
         <div class="field-body ">
           <div class="inputBox">
@@ -106,7 +106,7 @@
               <i class="fas fa-upload"></i>
             </span> -->
             <span class="file-label">
-              Choose File
+              Choose Image
             </span>
           </span>
         </label>      
@@ -147,9 +147,7 @@ export default {
         formData.append('price',this.price)
         formData.append('name',this.name)
         await axios.post("/api/upload",formData)
-				window.open("/home", "_self");
-        // let ans = await axios.get("/api")
-        // console.log(ans)
+				alert(this.title+" uploaded to the store");
       }
   }
 
@@ -171,9 +169,9 @@ export default {
     align-items: center;
   }
 
-  .pageContainer{
+  .background{
     background-color: antiquewhite;
-    height: 100vh;
+    height: 200vh;
   }
 
   .inputBox{

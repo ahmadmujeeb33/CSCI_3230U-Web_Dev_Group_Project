@@ -1,6 +1,6 @@
 <template>
-  <router-view/>
-	<div id="background">
+  <!-- <router-view/> -->
+	<div class="background">
 		<div class="checkout-form" hidden>
 			
 			<!-------------------- 1. Address Card ---------------------------->

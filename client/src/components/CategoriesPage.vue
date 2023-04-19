@@ -1,5 +1,5 @@
 <template>
-    <div class="body">
+    <div class="background">
         <div class="category_tiles">
         <div class="column" @click="goToCategory('Animal')">
             <a>
@@ -141,8 +141,17 @@ img {
 }
 
 .column {
-    background-color: coral;
+    background-color: rgb(232, 104, 25);
     margin: 20px;
     height: 350px
 }
+
+a:link, a:visited, a:active, a {
+	color: #FFDAB3;
+}
+
+a:hover {
+	color: white;
+}
+
 </style>

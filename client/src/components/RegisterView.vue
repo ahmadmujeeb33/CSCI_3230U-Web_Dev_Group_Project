@@ -2,8 +2,8 @@
     <div class="register">
        
         <div class="columns is-centered">
-            <form class="box" @submit.prevent="register">
-                <h2>Register</h2>
+            <form class="box mt-5" @submit.prevent="register">
+                <h2 class="title is-5">Register</h2>
 
                 <div class="field">
                     <label class="label">Email: </label>
@@ -44,7 +44,7 @@
                     <button class="button" @click="submit">Register</button>
                 </div>
         
-        <p v-if="register_error">{{register_error}}</p>
+        <p class="mt-3" v-if="register_error">{{register_error}}</p>
          
             
           </form>
@@ -120,18 +120,18 @@
             console.log(error.code)
             switch (error.code) {
                 case "auth/invalid-email":
-                    register_error.value= " invalid email"
+                    register_error.value= "Invalid email"
                     break;
 
                 case "auth/user-not-found":
-                    register_error.value= "No account with that email was found "
+                    register_error.value= "No account with that email was found"
                     break;
 
                 case "auth/email-already-in-use":
-                    register_error.value= "email already in use, use another one"
+                    register_error.value= "Email already in use, use another one"
                     break;
                 case "auth/weak-password":
-                    register_error.value= "password must be at leat 6 characters long"
+                    register_error.value= "Password must be at least 6 characters long."
                     break;
         
                 default:

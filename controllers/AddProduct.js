@@ -17,7 +17,7 @@ router.post('/', upload.single("file"),async (req,res) =>{
     let currentFile =__dirname + "/uploads/"+ req.file.filename
     await  bucket.upload(currentFile, {
       destination: req.file.originalname,
-  
+			
       gzip: true,
       metadata: {
         cacheControl: 'public, max-age=31536000'
@@ -46,7 +46,7 @@ router.post('/', upload.single("file"),async (req,res) =>{
     let items = main.db.collection('Items')
     items.add(req.body)
     
-  
+		res.send("Product created");
   })
 
 

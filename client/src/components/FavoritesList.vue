@@ -155,6 +155,7 @@ export default {
 
 #titleText{
   font-size: 20px;
+	cursor: pointer;
 }
 
 </style>

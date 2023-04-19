@@ -1,10 +1,10 @@
 <template>
   
-  <div class="profile">
+  <div class="profile mt-5">
     <div class="columns is-centered">
       <div class="box">
         <div id="profile_table">
-          <h1> My Information</h1>
+          <h1 class="title is-5"> My Information</h1>
 
         </div>
       </div>
