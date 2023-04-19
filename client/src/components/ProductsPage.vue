@@ -17,38 +17,32 @@
 				<!-- https://bulma.io/documentation/components/menu/ -->
 				<section class="menu mt-0">
 					<p class="menu-label">
-						Category
+						Sort
 					</p>
 					<ul class="menu-list">
-						<li><a>Sample Category 1</a></li>
-						<li><a>Sample Category 2</a></li>
-						<li><a>Should these Categories by Dynamically Generated?</a></li>
-					</ul>
-					
-					<p class="menu-label">
-						Rating
-					</p>
-					<ul class="menu-list">
-						<li><a>1 Star and Above</a></li>
-						<li><a>2 Star and Above</a></li>
-						<li><a>3 Star and Above</a></li>
-						<li><a>4 Star and Above</a></li>
+						<li><a>By Name</a></li>
+						<li><a>By Price</a></li>
 					</ul>
 
 					<p class="menu-label">
-						Nested Menu Example
+						Filter
 					</p>
 					<ul class="menu-list">
-						<li><a>Team Settings</a></li>
+						<!-- <li><a>Team Settings</a></li> -->
 						<li>
-							<a class="is-active">Manage Your Team</a>
+							<a class="is-active">Rating</a>
 							<ul>
-								<li><a>Members</a></li>
-								<li><a>Plugins</a></li>
-								<li><a>Add a member</a></li>
+								<li><a>1 Star and Above</a></li>
+								<li><a>2 Star and Above</a></li>
+								<li><a>3 Star and Above</a></li>
+								<li><a>4 Star and Above</a></li>
 							</ul>
 						</li>
-						<li><a>Invitations</a></li>
+						<li>
+							<a class="is-active">Category</a>
+							<ul id="categoryResults">
+							</ul>
+						</li>
 					</ul>
 				</section>
 			</div>
@@ -90,7 +84,8 @@ function productClick(event){
 //console.log(products);
 $(document).ready(function () {
 	console.log(store.state.message);
-	let loopCount = 0
+	let loopCount = 0;
+	let uniqueCategories = [];
 	$("#productGrid").replaceWith("<div class='container' id='productGrid'></div>");
 	for (var product of store.state.message) {
 		for(var key in product) {
@@ -108,11 +103,26 @@ $(document).ready(function () {
 
 			$(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
 
+			//increment product counter
 			loopCount += 1;
+
+			//check if the category of this product is new (not already in categories array)
+			if(!(uniqueCategories.includes(product[key]["categories"]))){
+				uniqueCategories.push(product[key]["categories"]);
+			}
+			console.log('product[key]["categories"]',product[key]["categories"]);
 		}
 	}
 	//show number of products
 	$("#numProducts").replaceWith('<span id="numProducts">'+loopCount+'</span>');
+
+	//update category filter with available categories based on search results
+	console.log("uniqueCategories",uniqueCategories);
+	$("#categoryResults").replaceWith('<ul id="categoryResults"></ul>');
+	for(var cat in uniqueCategories) {
+		$("#categoryResults").append('<li><a>'+uniqueCategories[cat]+'</a></li>');
+	}
+	
 
 });
 
@@ -142,7 +152,7 @@ $(document).ready(function () {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1050px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 0.5em;
 }
 
