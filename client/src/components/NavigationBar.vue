@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <router-link class="navbar-item" to="/home">
                 <svg width="100" height="39" viewBox="0 0 1813 704" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" overflow="hidden">
                     <defs>
@@ -24,7 +24,7 @@
                             fill-rule="evenodd" />
                     </g>
                 </svg>
-            </a>
+            </router-link>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="toggleBurger()">
                 <span aria-hidden="true"></span>
@@ -47,14 +47,6 @@
                         </span>
                     </div>
                 </div>
-
-                <!-- Item : landingpage -->
-                <router-link class="navbar-item" to="/"></router-link>
-
-                <!-- Item : Home -->
-                <router-link class="navbar-item" to="/home">
-                    Home
-                </router-link>
 
                 <!-- Item : Categories -->
                 <router-link class="navbar-item" to="/Categories">
@@ -115,7 +107,7 @@
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                 </span>
                                 <span><router-link to="/register" v-if="!logged_in">Register</router-link></span>
-                                <span>>Logout</span>
+                                <span>Logout</span>
                             </span>
                         </a>
 
