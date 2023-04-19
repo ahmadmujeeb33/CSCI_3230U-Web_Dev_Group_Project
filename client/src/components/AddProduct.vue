@@ -161,6 +161,10 @@ export default {
 <style scoped>
   @import "../../node_modules/bulma/css/bulma.css";
 
+	.background{
+		padding-bottom: 120px;
+	}
+
   .titleContainer{
     display: flex;
     justify-content: center;
@@ -171,7 +175,7 @@ export default {
 
   .background{
     background-color: antiquewhite;
-    height: 200vh;
+    /* height: 200vh; */
   }
 
   .inputBox{

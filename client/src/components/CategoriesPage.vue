@@ -1,99 +1,99 @@
 <template>
-    <div class="background">
-        <div class="category_tiles">
-        <div class="column" @click="goToCategory('Animal')">
-            <a>
-                Animals
-                <img src="../assets/categories/animal.jpg">
-            </a>
-        </div>
+	<div class="background">
+		<div class="category_tiles">
+			<div class="column" @click="goToCategory('Animal')">
+					<a class="title is-5">
+							Animals
+							<img src="../assets/categories/animal.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Cinema')">
-            <a>
-                Cinema
-                <img src="../assets/categories/cinema.jpg">
-            </a>
-        </div>
+			<div class="column" @click="goToCategory('Cinema')">
+					<a class="title is-5">
+							Cinema
+							<img src="../assets/categories/cinema.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Food')">
-            <a>
-                Food
-                <img src="../assets/categories/food.jpg">
-            </a>
-        </div>
+			<div class="column" @click="goToCategory('Food')">
+					<a class="title is-5">
+							Food
+							<img src="../assets/categories/food.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Gaming')">
-            <a>
-                Gaming
-                <img src="../assets/categories/gaming.jpg">
-            </a>
-        </div>
+			<div class="column" @click="goToCategory('Gaming')">
+					<a class="title is-5">
+							Gaming
+							<img src="../assets/categories/gaming.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Robot')">
-            <a>
-                Robot
-                <img src="../assets/categories/robot.jpg">
-            </a>
-        </div>
+			<div class="column" @click="goToCategory('Robot')">
+					<a class="title is-5">
+							Robot
+							<img src="../assets/categories/robot.jpg">
+					</a>
+			</div>
 
-        <!-- <div class="column " @click="goToCategory('Phones')">
-            <a>
-                Phones
-                <img src="../assets/categories/phones.jpg">
-            </a>
-        </div>
+			<!-- <div class="column " @click="goToCategory('Phones')">
+					<a>
+							Phones
+							<img src="../assets/categories/phones.jpg">
+					</a>
+			</div>
 
-        <div class="column " @click="goToCategory('Watches')">
-            <a>
-                Watches
-                <img src="../assets/categories/watches.jpg">
-            </a>
-        </div>
+			<div class="column " @click="goToCategory('Watches')">
+					<a>
+							Watches
+							<img src="../assets/categories/watches.jpg">
+					</a>
+			</div>
 
-        <div class="column " @click="goToCategory('Sports')">
-            <a>
-                Sports
-                <img src="../assets/categories/sports.jpg">
-            </a>
-        </div>
+			<div class="column " @click="goToCategory('Sports')">
+					<a>
+							Sports
+							<img src="../assets/categories/sports.jpg">
+					</a>
+			</div>
 
-        <div class="column " @click="goToCategory('Clothes')">
-            <a>
-                Clothes
-                <img src="../assets/categories/clothes.jpg">
-            </a>
-        </div>
+			<div class="column " @click="goToCategory('Clothes')">
+					<a>
+							Clothes
+							<img src="../assets/categories/clothes.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Laptops')">
-            <a>
-                Laptops
-                <img src="../assets/categories/laptops.jpg">
-            </a>
-        </div>
+			<div class="column" @click="goToCategory('Laptops')">
+					<a>
+							Laptops
+							<img src="../assets/categories/laptops.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Bikes')">
-            <a>
-                Bikes
-                <img src="../assets/categories/bikes.jpg">
-            </a>
-        </div>
+			<div class="column" @click="goToCategory('Bikes')">
+					<a>
+							Bikes
+							<img src="../assets/categories/bikes.jpg">
+					</a>
+			</div>
 
-        <div class="column" @click="goToCategory('Furniture')">
-            <a>
-                Furniture
-                <img src="../assets/categories/furniture.jpg">
-            </a>
-        </div> -->
+			<div class="column" @click="goToCategory('Furniture')">
+					<a>
+							Furniture
+							<img src="../assets/categories/furniture.jpg">
+					</a>
+			</div> -->
 
-        <div class="column" @click="goToCategory('Other')">
-            <a>
-                Other
-                <img src="../assets/categories/other.jpg">
-            </a>
-        </div>
-    </div>
-
-    </div>
+			<div class="column" @click="goToCategory('Other')">
+					<a class="title is-5">
+							Other
+							<img src="../assets/categories/other.jpg">
+					</a>
+			</div>
+		</div>
+	<!-- End class=background div -->
+	</div>
 </template>
 
 
@@ -118,6 +118,15 @@ export default {
         }
     }
 }
+
+// $(document).ready(function () {
+// 	$('.background').each(function(){ //loop through each element with the .dynamic-height class
+// 		$(this).css({
+// 			'padding-bottom' : 100 + 'px' //adjust the css rule for margin-top to equal the element height - 10px and add the measurement unit "px" for valid CSS
+// 		});
+// 		$(this).append("<br>");
+// 	});
+// });
 </script>
 
 
@@ -126,6 +135,10 @@ export default {
 
 .body {
     background-color: antiquewhite;
+}
+
+.background{
+	padding-bottom: 110px;
 }
 
 .category_tiles {

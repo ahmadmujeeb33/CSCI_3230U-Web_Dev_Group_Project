@@ -1,6 +1,6 @@
 <template>
   <!-- <router-view/> -->
-	<div class="background">
+	<div class="background pt-0">
 		<div class="checkout-form" hidden>
 			
 			<!-------------------- 1. Address Card ---------------------------->
@@ -422,13 +422,14 @@ onAuthStateChanged(auth,async (user)=>{
 	if (docSnap.exists())
 	{
 		if(docSnap.data().cart.length === 0){
-			$(".checkout-form").replaceWith('<div class="checkout-form"><div class="card mb-5"><header class="card-header"><p class="card-header-title">Please add at least 1 item to your cart to check out.<button class="button is-warning" id="browseButton">Browse Products</button></p></header></div></div>');
+			$(".checkout-form").replaceWith('<div class="checkout-form"><div class="card mb-5"><header class="card-header"><p class="card-header-title">Please add at least 1 item to your cart to check out.<button class="button is-warning" id="browseButton">Browse Products</button></p></header></div></div>')
 
 			$("#browseButton").click(function(){
 				window.open("/home", "_self");
 			});
 
 			$("#browseButton").css({"margin-left": "15px"});
+			$(".checkout-form").css({"padding-bottom": "300px"});
 		}
 		$(".checkout-form").show(speed);
 		for( var i =0; i<docSnap.data().cart.length;i++)
@@ -519,7 +520,11 @@ const clear_cart = () => {
 }
 
 /* Added CSS Styling */
-#background {
-    background-color: antiquewhite;
+.background {
+  padding-bottom: 70px;
+
+	display: flex;
+	flex-flow: column; 
+	height: 100%;
 }
 </style>
