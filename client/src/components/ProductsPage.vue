@@ -142,17 +142,14 @@ margin-top: 60px;
 	padding: 10px;
 	margin-bottom: 10px;
 }
-
 .is-20px {
   width: 20px;
 }
-
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 0.5em;
 }
-
 .productGrid {
 	padding: 10px;
 } */
