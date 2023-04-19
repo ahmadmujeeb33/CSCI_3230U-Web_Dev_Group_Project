@@ -43,6 +43,7 @@
 import{onMounted,} from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
 import { getFirestore,getDoc,doc,updateDoc, arrayUnion} from "firebase/firestore";
+import store from "../store"
 import $ from "jquery";
 //import jquery from "jquery";
 
@@ -82,7 +83,7 @@ onMounted(()=>
               if (docSnap2.exists()){
                 console.log(docSnap2.data().id)
                 let image = docSnap2.data().url
-                let name = docSnap2.data().name
+                let name = docSnap2.data().title
                 let price = docSnap2.data().price
                 let id = i
                 
@@ -94,8 +95,11 @@ onMounted(()=>
                     img = img.attr("width",200)
                     img = img.attr("height",200)
                     img = img.attr("class", 'image')
+                    img.attr("id",id)
+                    img.on('click',gotoPage)
                     imgDiv.append(img)
-                let infodiv = $('<div>').attr('class','column item is-two-fifths')    
+
+                let infodiv = $('<div>').attr('class','column item is-two-fifths')
                 let priceDiv= $('<div>').text("Price:  $"+price).attr('class','item pad')
                 let nameDiv = $('<div>').text(name).attr('class','item pad')
                   infodiv.append(nameDiv)
@@ -142,6 +146,12 @@ onMounted(()=>
     });
 
   });
+  const gotoPage = (event)=>{
+    console.log(event.target.id)
+    store.commit('updateProduct', event.target.id);
+    window.open("/InformationPage", "_self");
+
+  }
 
 
   const removeFromcart = (event) => {
