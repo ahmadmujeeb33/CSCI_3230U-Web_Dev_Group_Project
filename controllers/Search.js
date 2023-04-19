@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
 
         let search = req.body.value;
         search = search.toLowerCase();
-        // let regex = new RegExp(search, "i");
         let searchArray = search.split('+');
 
         console.log(searchArray);
@@ -21,7 +20,6 @@ router.post('/', async (req, res) => {
                 title = title.toLowerCase();
 
                 if (searchArray[i].length >= 3 && title.includes(searchArray[i])) {
-                    // console.log(doc.data().title)
                     matchedItems.push({ [doc.id]: doc.data() });
                     break;
                 }
