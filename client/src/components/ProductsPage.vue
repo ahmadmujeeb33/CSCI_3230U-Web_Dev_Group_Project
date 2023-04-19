@@ -5,7 +5,7 @@
 		<!-- Search results header -->
 		<section class="hero">
 				<p class="title is-6 left-align mb-0">
-					<b>Search Results:</b> <span id="numProducts"></span> Products Found
+					<b>Search Results:</b> <span id="numProducts"></span> Product(s) Found
 				</p>		
 		</section>
 
