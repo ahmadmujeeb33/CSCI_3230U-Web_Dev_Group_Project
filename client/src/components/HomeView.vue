@@ -188,6 +188,10 @@
   </script>
   
   <style scoped>
+
+		.background{
+			padding-bottom: 120px;
+		}
     .homepage {
       text-align: center;
       margin-top: 60px;

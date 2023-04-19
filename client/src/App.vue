@@ -23,14 +23,12 @@
 import NavigationBar from './components/NavigationBar.vue';
 import BottomBar from './components/BottomBar.vue';
 
-
 // import CategoriesPage from './components/CategoriesPage.vue';
 // import BottomBar from './components/BottomBar.vue';
 // import AddProductVue from './components/AddProduct.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 // import FavoritesList from './components/FavoritesList.vue'
 // import MainComponent from './components/MainComponent.vue'
-
 
 
 export default {
@@ -42,6 +40,7 @@ export default {
 
   }
 }
+
 </script>
 
 <style>
@@ -56,6 +55,6 @@ export default {
 
 .background{
 	background-color: antiquewhite;
-	height: 125vh;
+	padding-bottom: 120px;
 }
 </style>

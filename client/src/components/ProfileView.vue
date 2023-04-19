@@ -1,17 +1,19 @@
 <template>
-  
-  <div class="profile mt-5">
-    <div class="columns is-centered">
-      <div class="box">
-        <div id="profile_table">
-          <h1 class="title is-5"> My Information</h1>
+  <div class="background">
+		<div class="profile mt-5">
+			<div class="columns is-centered">
+				<div class="box">
+					<div id="profile_table">
+						<h1 class="title is-5">My Information</h1>
 
-        </div>
-      </div>
+					</div>
+				</div>
 
-    </div>
+			</div>
 
-  </div>
+		</div>
+		<div class="fillRemaining"></div>
+	</div>
 
   </template>
 
@@ -22,7 +24,6 @@ import{onMounted,} from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
 import { getFirestore,getDoc,doc} from "firebase/firestore";
 import $ from "jquery";
-
 
 const db = getFirestore();
 
@@ -99,3 +100,19 @@ onMounted(()=>
   });
 
 </script>
+<style scoped>
+
+.background{
+	display: flex;
+	flex-flow: column; 
+	height: 100%;
+}
+
+/* .profile .background{
+	flex: 1 1 auto;
+} */
+
+.columns {
+	padding-bottom: 13rem;
+}
+</style>

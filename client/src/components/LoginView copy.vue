@@ -29,6 +29,10 @@
 			</form>
 		</div>        
 	</div>
+		
+		<div id="remaining-height">
+			Remaining height
+		</div>
     
 </template>
 
@@ -89,4 +93,16 @@
 <style scoped>
 /* @import "~bulma/css/bulma.css" */
 
+#remaining-height {
+	background-color: #d9deda;
+	position: sticky;
+	/* top: 100px; */
+	bottom: 0;
+	width: 100%;
+}
+/* static
+relative
+fixed
+absolute
+sticky */
 </style>

@@ -143,6 +143,7 @@ $(document).ready(function () {
 			}
 		}
 	}
+	$("#productGrid").css( "padding-bottom", "40px" );
 	//show number of products
 	$("#numProducts").replaceWith('<span id="numProducts">'+loopCount+'</span>');
 	
@@ -173,11 +174,16 @@ $(document).ready(function () {
     color: #2c3e50;
     margin-top: 60px;
 }
+
 .left-align {
     text-align: left;
     background-color: #fafafa;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+#productGrid{
+	padding-bottom: 500px;
 }
 
 .is-20px {
@@ -191,12 +197,8 @@ $(document).ready(function () {
 }
 
 /* Added CSS Styling */
-.background {
-    background-color: antiquewhite;
-}
-
 .background * {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 a:link, a:visited, a:active, a {
@@ -214,6 +216,10 @@ a:hover {
 .menuColumn {
 	background-color: #fafafa;
 	margin-top: 2px;
+}
+
+.menu {
+	padding-bottom: 120px;
 }
 
 .productSection {
