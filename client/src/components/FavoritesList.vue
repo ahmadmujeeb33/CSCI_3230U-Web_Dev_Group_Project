@@ -40,7 +40,7 @@
               </figure>
           </div>
           <footer class="card-footer">
-              <p style="cursor:pointer" @click="sendInfo" class="card-footer-item">Click for more details</p>
+              <a style="cursor:pointer" @click="sendInfo" class="card-footer-item">Click for more details</a>
           </footer>
         </div>
       </div>
@@ -170,6 +170,14 @@ export default {
 
 .card * {
 		background: rgb(232, 104, 25);
+}
+
+a:link, a:visited, a:active, a {
+	color: #FFDAB3;
+}
+
+a:hover {
+	color: white;
 }
 </style>
  
