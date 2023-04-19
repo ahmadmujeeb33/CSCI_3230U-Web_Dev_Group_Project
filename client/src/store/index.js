@@ -8,6 +8,7 @@ let store =  createStore({
     state: {
         message: {},
 				product: {},
+        uid:"",
     },
      getters: {
     },
@@ -18,6 +19,9 @@ let store =  createStore({
 			updateProduct(state, newProduct) {
         state.product = newProduct;
       },
+      updateUid(state, uid){
+        state.uid = uid
+      }
     },
  
   plugins: [createPersistedState()]

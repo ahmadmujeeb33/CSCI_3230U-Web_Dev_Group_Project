@@ -36,14 +36,14 @@
 
       <div class="field is-horizontal  ">
         <div class="field-label is-normal">
-          <label class="label">Catagories</label>
+          <label class="label">Categories</label>
         </div>
         <div class="field-body ">
           <div class="inputBox">
             <div class="field ">
               <div class="control">
                 <div class="select">
-                  <select v-model="catagories" class="dropdown">
+                  <select v-model="categories" class="dropdown">
                     <option>Bikes</option>
                     <option>Clothes</option>
                     <option>Furniture</option>
@@ -161,9 +161,9 @@ export default {
         selectedFile:null,
         title:null,
         description:null,
-        catagories:null,
+        categories:null,
         price:null,
-        name:null
+        name:null,
       }
   },
   methods:{
@@ -179,7 +179,7 @@ export default {
         formData.append('file',this.selectedFile)
         formData.append('title',this.title)
         formData.append('description',this.description)
-        formData.append('catagories',this.catagories)
+        formData.append('categories',this.categories)
         formData.append('price',this.price)
         formData.append('name',this.name)
         console.log(formData.get('name'))

@@ -73,13 +73,11 @@
 // import ProductsPageSidebar from './ProductsPageSidebar.vue'
 import store from '../store'
 import $ from 'jquery'
-
 function productClick(event){
 	console.log("event.target.id",event.target.id);
 	store.commit('updateProduct', event.target.id);
 	window.open("/InformationPage", "_self");
 }
-
 // const products = store.state.message;
 //console.log(products);
 $(document).ready(function () {
@@ -130,6 +128,35 @@ $(document).ready(function () {
 </script>
 
 <style scoped>
+/* #app {
+font-family: Avenir, Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-align: center;
+color: #2c3e50;
+margin-top: 60px;
+}
+.left-align {
+	text-align: left;
+	background-color: #fafafa;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.is-20px {
+  width: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0.5em;
+}
+
+.productGrid {
+	padding: 10px;
+} */
+
 
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
