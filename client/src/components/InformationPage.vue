@@ -122,7 +122,7 @@ onMounted(() => {
             const height = 300;
             const chartWidth = width - 2 * margin;
             const chartHeight = height - 2 * margin;
-            let data = [1,2,3,4,10];
+            let data = docSnap.data().reviews;
             let sum = data.reduce((partialSum, a) => partialSum + a, 0);
             let freq = []
             data.forEach(d => {
