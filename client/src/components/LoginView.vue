@@ -89,4 +89,11 @@
 <style scoped>
 /* @import "~bulma/css/bulma.css" */
 
+.background{
+	display: flex;
+	flex-flow: column; 
+	height: 100%;
+	padding-bottom: 305px;
+}
+
 </style>

@@ -3,18 +3,14 @@
   <html lang="en">
   
   <body>
-      <div class="title has-background-primary">Cart </div>
-  
+		<div class="background">
+      <div class="title has-background-primary">Cart</div>
       <div id="list" class=" pad columns is-two-fifths">
-          <div id="cart" class="column is-two-fifths">
-              
-              
-              </div>
-          </div>
-  
-  
-      
-  
+				<div id="cart" class="column is-two-fifths">
+				</div>
+			</div>
+		
+		</div>
   </body>
   
   </html>
@@ -88,8 +84,9 @@ onMounted(()=>
                 let id = i
                 
 
-                let item = $('<div>').attr('class','columns item mb-2 box is-half pad has-background-grey-lighter')
+                let item = $('<div>').attr('class','columns item mb-5 box is-half pad has-background-grey-lighter')
                     item.attr('id',id)
+										item.css({"cursor": "pointer"});
                 let imgDiv = $('<div>').attr('class','column item is-two-fifths')
                 let img = $("<img>").attr("src",image)
                     img = img.attr("width",200)
@@ -101,7 +98,7 @@ onMounted(()=>
 
                 let infodiv = $('<div>').attr('class','column item is-two-fifths')
                 let priceDiv= $('<div>').text("Price:  $"+price).attr('class','item pad')
-                let nameDiv = $('<div>').text(name).attr('class','item pad')
+                let nameDiv = $('<div>').text(name).attr('class','item pad title is-5')
                   infodiv.append(nameDiv)
                   infodiv.append(priceDiv)
                 let removed = $('<div>').attr('class','column button') 
@@ -224,6 +221,4 @@ onMounted(()=>
       text-align: left;
       padding: 1%;
   }
-  
-  
-  </style>
+</style>

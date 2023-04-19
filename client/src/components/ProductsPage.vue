@@ -63,7 +63,6 @@
 </template>
 
 <script setup>
-// import ProductsPageSidebar from './ProductsPageSidebar.vue'
 import store from '../store'
 import $ from 'jquery'
 function productClick(event){
@@ -219,7 +218,7 @@ a:hover {
 }
 
 .menu {
-	padding-bottom: 120px;
+	padding-bottom: 145px;
 }
 
 .productSection {

@@ -113,6 +113,6 @@ onMounted(()=>
 } */
 
 .columns {
-	padding-bottom: 13rem;
+	padding-bottom: 305px;
 }
 </style>

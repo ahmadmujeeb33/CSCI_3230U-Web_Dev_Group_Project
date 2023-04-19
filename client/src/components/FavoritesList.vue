@@ -1,6 +1,6 @@
 <template >
   <div class="FavoriteContainer">
-    <p style="padding-top:30px;font-size: 40px;padding-bottom:20px">MyFavorites</p>
+    <p style="padding-top:30px;font-size: 40px;padding-bottom:20px">My Favorites</p>
 
     <!-- <h1>{{allitems.name}}</h1> -->
 
@@ -27,7 +27,7 @@
     </div> -->
 
     <div class="ItemsContainer" v-for="item in allitems" :key="item.id">
-      <div class="Items" v-if="currentID ===  item.id ">
+      <div class="Items container" v-if="currentID ===  item.id ">
         <div class="card">
           <header class="card-header">
               <p class="card-header-title">
@@ -40,7 +40,7 @@
               </figure>
           </div>
           <footer class="card-footer">
-              <p style="cursor:pointer" @click="sendInfo" class="card-footer-item">Click for more details</p>
+              <a style="cursor:pointer" @click="sendInfo" class="card-footer-item">Click for more details</a>
           </footer>
         </div>
       </div>
@@ -158,5 +158,26 @@ export default {
 	cursor: pointer;
 }
 
+.container {
+	display: grid;
+	grid-template-columns: 300px;
+	grid-gap: 0.5em;
+	justify-content: center;
+}
+.card {
+	height: max-content;
+}
+
+.card * {
+		background: rgb(232, 104, 25);
+}
+
+a:link, a:visited, a:active, a {
+	color: #FFDAB3;
+}
+
+a:hover {
+	color: white;
+}
 </style>
  
