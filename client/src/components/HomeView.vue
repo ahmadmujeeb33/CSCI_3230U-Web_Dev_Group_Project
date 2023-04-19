@@ -34,7 +34,7 @@
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/WIP.png">
+                      <img src="../assets/ads/monkey.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -50,7 +50,7 @@
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/WIP.png">
+                      <img src="../assets/ads/sasquatch.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -66,7 +66,7 @@
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/WIP.png">
+                      <img src="../assets/ads/president.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -77,12 +77,12 @@
           <div class="card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Consume the product! Check out Murval Studios' latest cash grab!
+                      Consume! Check out Murval Studios' latest cash grab!
                   </p>
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/Hottest_NFTees.png">
+                      <img src="../assets/ads/morval.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -98,7 +98,7 @@
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/WIP.png">
+                      <img src="../assets/ads/octopus.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -114,7 +114,7 @@
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/WIP.png">
+                      <img src="../assets/ads/bender.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -130,7 +130,7 @@
               </header>
               <div class="card-image">
                   <figure class="image is-4by3">
-                      <img src="../assets/WIP.png">
+                      <img src="../assets/ads/troll.png">
                   </figure>
               </div>
               <footer class="card-footer">
@@ -162,9 +162,9 @@
     data() {
       return {
         images: [
-          { src: require('@/assets/Hottest_NFTees.png') },
-          { src: require('@/assets/Monkey_Madness.png') },
-          { src: require('@/assets/Great_Deals.png') },
+          { src: require('@/assets/carousel/Hottest_NFTees.png') },
+          { src: require('@/assets/carousel/Monkey_Madness.png') },
+          { src: require('@/assets/carousel/Great_Deals.png') },
         ],
       };
     },
