@@ -113,7 +113,7 @@ onMounted(() => {
           $("#price").text("Price:  $"+docSnap.data().price)
           $("#seller").text("Seller:  "+docSnap.data().name)
           $("#descr").text("Description:  "+docSnap.data().description)
-          $("#cate").text("Categories: "+docSnap.data().catagories)
+          $("#cate").text("Categories: "+docSnap.data().categories)
           $("#product_image").attr("src",docSnap.data().url)
         
             var parsedData = []
