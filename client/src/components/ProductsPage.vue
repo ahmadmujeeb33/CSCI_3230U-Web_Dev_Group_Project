@@ -4,22 +4,53 @@
 	<div id="background">
 		<!-- Search results header -->
 		<section class="hero">
-				<p class="title is-6 left-align">
-					<b>Search Results:</b> 123 Products Found
+				<p class="title is-6 left-align mb-0">
+					<b>Search Results:</b> <span id="numProducts"></span> Products Found
 				</p>		
 		</section>
 
 		<!-- Display Products in Grid -->
-		<div class="columns"> <!-- "columns mt-5 is-8 is-variable" -->
+		<div class="columns is-gapless"> <!-- "columns mt-5 is-8 is-variable" -->
 			<!-- Filter menu -->
-			<div class="column is-one-fifth"> <!-- column is-4-tablet is-3-desktop -->
-				<ProductsPageSidebar/>
+			<div class="column is-one-fifth menuColumn"> <!-- column is-4-tablet is-3-desktop -->
+				<!-- <ProductsPageSidebar/> -->
+				<!-- https://bulma.io/documentation/components/menu/ -->
+				<section class="menu mt-0">
+					<p class="menu-label">
+						Sort
+					</p>
+					<ul class="menu-list">
+						<li><a>By Name</a></li>
+						<li><a>By Price</a></li>
+					</ul>
+
+					<p class="menu-label">
+						Filter
+					</p>
+					<ul class="menu-list">
+						<!-- <li><a>Team Settings</a></li> -->
+						<li>
+							<a class="is-active">Rating</a>
+							<ul>
+								<li><a>1 Star and Above</a></li>
+								<li><a>2 Star and Above</a></li>
+								<li><a>3 Star and Above</a></li>
+								<li><a>4 Star and Above</a></li>
+							</ul>
+						</li>
+						<li>
+							<a class="is-active">Category</a>
+							<ul id="categoryResults">
+							</ul>
+						</li>
+					</ul>
+				</section>
 			</div>
 			<!-- Show product grid in remaining space -->
-			<div class="column productGrid">
+			<div class="column is-four-fifths productColumn">
 				
 						<!-- Product Grid -->
-						<section>
+						<section class="productSection">
 
 							<div class="container" id="productGrid">
 								
@@ -39,7 +70,7 @@
 </template>
 
 <script setup>
-import ProductsPageSidebar from './ProductsPageSidebar.vue'
+// import ProductsPageSidebar from './ProductsPageSidebar.vue'
 import store from '../store'
 import $ from 'jquery'
 function productClick(event){
@@ -48,8 +79,11 @@ function productClick(event){
 	window.open("/InformationPage", "_self");
 }
 // const products = store.state.message;
-// console.log(products);
+//console.log(products);
 $(document).ready(function () {
+	console.log(store.state.message);
+	let loopCount = 0;
+	let uniqueCategories = [];
 	$("#productGrid").replaceWith("<div class='container' id='productGrid'></div>");
 	for (var product of store.state.message) {
 		for(var key in product) {
@@ -58,6 +92,7 @@ $(document).ready(function () {
 			
 			document.getElementById(key).addEventListener("click", productClick); //how to add function parameter?
 
+			// Set CSS of dynamically generated elements
 			$(".card").css({"height": "max-content"});
 			$(".card *").css({"background": "rgb(232, 104, 25)"});
 		
@@ -65,8 +100,28 @@ $(document).ready(function () {
 			$("#productGrid").find("a:hover").css( "color", "white" );
 
 			$(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
+
+			//increment product counter
+			loopCount += 1;
+
+			//check if the category of this product is new (not already in categories array)
+			if(!(uniqueCategories.includes(product[key]["categories"]))){
+				uniqueCategories.push(product[key]["categories"]);
+			}
+			console.log('product[key]["categories"]',product[key]["categories"]);
 		}
 	}
+	//show number of products
+	$("#numProducts").replaceWith('<span id="numProducts">'+loopCount+'</span>');
+
+	//update category filter with available categories based on search results
+	console.log("uniqueCategories",uniqueCategories);
+	$("#categoryResults").replaceWith('<ul id="categoryResults"></ul>');
+	for(var cat in uniqueCategories) {
+		$("#categoryResults").append('<li><a>'+uniqueCategories[cat]+'</a></li>');
+	}
+	
+
 });
 
 
@@ -125,10 +180,6 @@ margin-top: 60px;
   grid-gap: 0.5em;
 }
 
-.productGrid {
-    padding: 10px;
-}
-
 /* Added CSS Styling */
 #background {
     background-color: antiquewhite;
@@ -148,5 +199,22 @@ a:hover {
 
 .card * {
     background-color: rgb(232, 104, 25);
+}
+
+.menuColumn {
+	background-color: #fafafa;
+	margin-top: 2px;
+}
+
+.productSection {
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.menu {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 </style>
