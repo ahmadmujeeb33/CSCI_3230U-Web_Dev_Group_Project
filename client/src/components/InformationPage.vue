@@ -2,13 +2,7 @@
     <html lang="en">
     
     <body>
-        <nav class="navbar is-dark">
-            <!-- Brand -->
-            <div class="navbar-brand">
-                <a class="navbar-item">
-                </a>
-            </div>
-        </nav>
+
     
         <div class="columns is-vcentered">
             
@@ -29,12 +23,10 @@
                     <div id="descr" class="info" ></div>
                     <br>
             <div v-if="logged_in"> 
-                    <div id="add" class="button" >Add to Cart</div>
+                    <div @click="addtocart" id="add" class="button" >Add to Cart</div>
                     <div  @click="favorite" id="favorite" class="button ">
                     
-                        <img @click="unFavorite" class="starImage" v-if="favorites" src="../assets/starfilled.png" width="25" height="25">
-
-                        <img @click="toFavorite" class="starImage" v-else src="../assets/starEmpty.png" width="25" height="25">
+                       <create-favorites/>
                 </div>
             </div>
 
@@ -47,7 +39,7 @@
             </div>
             <div class="column is-centered is-half">
                 <div class="box">
-                    <img id="product_image" class="center" src="" alt="">  
+                    <img id="product_image" class="center" src="" alt="" width="700" height="700">  
                 </div>
                 
             </div>
@@ -63,111 +55,65 @@
     
     <script>
      
-    import axios from 'axios'
+        import CreateFavorites from './CreateFavorites.vue';
 
-    
-    export default {
-      name: 'InformationPage',
-      data() {
-        return {
-          favorites:false,     
-          
-        }
         
-    
-    
-      },
-    
-      async created(){
-        console.log("thisssssssss")
-        let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
-        this.favorites = await axios.get(`/api/info/check_favorites/${data.userId}/${data.itemId}`)
-    
-      },
-    
-      methods: {
-        async toFavorite(){
-            let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
-            this.favorites = true
-            console.log("in ehreee")
-            await axios.post("/api/info/add_favorites",data)
-    
-      
+        export default {
+        name: 'InformationPage',
+        components: {
+            CreateFavorites
         },
-    
-    
-        async unFavorite(){
-            let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
-            this.favorites = false
-            console.log("in ehreee")
-            await axios.delete(`/api/info/delete_favorites/${data.userId}/${data.itemId}`)
-    
-       
-        },
-
-        async addCart(){
-            let data = {"itemId":"G0hFcr5MMP0m1wmTaYIf","userId":"dQbBabEpFn87fLxaHTtO"}
-            await axios.put("/api/info/update_cart",data)
-
+        data() {
+            return {
+            favorites:false,     
+            
             }
-
-    
-    }
-    }
+            
+        
+        
+        },
+        
+        }
     </script>
 
 <script setup>
 import{onMounted,  ref } from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
-import { getFirestore,getDoc,doc} from "firebase/firestore";
+import { getFirestore,getDoc,doc, arrayUnion, updateDoc} from "firebase/firestore";
 import store from "../store"
 import $ from "jquery";
 import * as d3 from 'd3'
-
-
 const db = getFirestore();
 let id = store.state.product
-
 const logged_in = ref(false)
-
 const auth = getAuth();
-
-
 onMounted(() => {
     
-
     onAuthStateChanged(auth, (user) => {
-
-
         if (user) {
             logged_in.value = true;
+            store.commit('updateUid', user.uid);
+            
+
+
         }
         else {
             logged_in.value = false;
         }
-
     });
-
 });
-
  onMounted(async ()=>
   {
-
-
     
         const docRef = doc(db, "Items", id);
         const docSnap = await getDoc(docRef);
-
         if (docSnap.exists())
         {
-
-
           $("#title").text(docSnap.data().title)
           $("#price").text("Price:  $"+docSnap.data().price)
           $("#seller").text("Seller:  "+docSnap.data().name)
           $("#descr").text("Description:  "+docSnap.data().description)
           $("#cate").text("Categories: "+docSnap.data().catagories)
-
           $("#product_image").attr("src",docSnap.data().url)
         
             var parsedData = []
@@ -176,8 +122,7 @@ onMounted(() => {
             const height = 300;
             const chartWidth = width - 2 * margin;
             const chartHeight = height - 2 * margin;
-
-            let data = [1,2,3,4,10];
+            let data = docSnap.data().reviews;
             let sum = data.reduce((partialSum, a) => partialSum + a, 0);
             let freq = []
             data.forEach(d => {
@@ -260,10 +205,30 @@ onMounted(() => {
           // docSnap.data() will be undefined in this case
           console.log("No such document!");
         }
-
-
     });
-
+    const addtocart= () => {
+        const db = getFirestore();
+        const auth = getAuth();
+        
+            onAuthStateChanged(auth, async (user) => {
+                if(user){
+                    const docRef = doc(db, "user", user.uid);
+                    const docRef2 = doc(db,"Items",id)
+                    const docSnap = await getDoc(docRef);
+                    let cart = docSnap.data().cart
+                    cart.push(id)
+                    
+                    await updateDoc(docRef, {
+                        cart:arrayUnion(id)
+                    })
+                    
+                }
+                
+                
+            });
+        $("#"+id).remove();
+    
+};
 </script>
     <style>
     @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";

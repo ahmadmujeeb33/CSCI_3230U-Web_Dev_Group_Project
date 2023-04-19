@@ -34,8 +34,6 @@
     }
   }
 
-  
-
   </script>
 
 
@@ -44,7 +42,7 @@
   <script setup>
 import{onMounted,} from "vue"
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
-import { getFirestore,getDoc,doc} from "firebase/firestore";
+import { getFirestore,getDoc,doc,updateDoc, arrayUnion} from "firebase/firestore";
 import $ from "jquery";
 //import jquery from "jquery";
 
@@ -104,6 +102,9 @@ onMounted(()=>
                   infodiv.append(priceDiv)
                 let removed = $('<div>').attr('class','column button') 
                   removed.text("Remove")
+                  removed.attr("id",id)
+                  removed.on("click", removeFromcart);
+                  
 
 
                 item.append(imgDiv)
@@ -142,7 +143,51 @@ onMounted(()=>
 
   });
 
-  </script>
+
+  const removeFromcart = (event) => {
+    const db = getFirestore();
+    const auth = getAuth();
+    let id = event.target.id
+    console.log(id)
+    
+        
+            onAuthStateChanged(auth, async (user) => {
+                if(user){
+                  const docRef = doc(db,"Items",id)
+                  const docRef2 = doc(db,"user",user.uid)
+                  const docSnap = await getDoc(docRef);
+                  const docSnap2 = await getDoc(docRef2);
+                  
+                  console.log(docSnap2.data())
+                  let cart = docSnap2.data().cart
+                  console.log(cart)
+                  
+                  let index = cart.indexOf(id.toString())
+                  cart.splice(index,1)
+                  //console.log(cart)
+
+                  await updateDoc(docRef2,{
+                    cart: []
+                  })
+                  
+                  cart.forEach(async item => {
+                    await updateDoc(docRef2, {
+                        cart:arrayUnion(item)
+                    })
+                   
+                  });
+                                      
+                }
+              $("#"+id).remove()
+                
+                
+            });
+
+  }
+
+
+
+</script>
   
   <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";

@@ -40,7 +40,7 @@
               </figure>
           </div>
           <footer class="card-footer">
-              <a href="#" class="card-footer-item">Click for more details</a>
+              <p style="cursor:pointer" @click="sendInfo" class="card-footer-item">Click for more details</p>
           </footer>
         </div>
       </div>
@@ -57,6 +57,7 @@
 
 import axios from 'axios';
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
+import store from "../store"
 
 
 
@@ -74,16 +75,12 @@ export default {
 
 
   async created() {
-    console.log("in this")
 
     let auth=getAuth();
 
     onAuthStateChanged(auth,async (user)=>{
-      console.log("user id",user.uid)
       let response = await axios.get(`/api/get_favorites/${user.uid}`)
-      console.log("data",response.data)
       this.allitems = response.data
-      console.log(this.allitems[0])
 
     });
 
@@ -95,6 +92,12 @@ export default {
     changeModel(newID) {
       this.currentID = newID
       
+    },
+    sendInfo(){
+      store.commit('updateProduct', this.currentID);
+      window.open("/InformationPage", "_self");
+
+
     }
   }
 
