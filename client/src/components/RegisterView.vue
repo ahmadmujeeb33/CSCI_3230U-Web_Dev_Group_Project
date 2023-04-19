@@ -1,5 +1,5 @@
 <template>
-    <div class="register">
+    <div class="register background">
        
         <div class="columns is-centered">
             <form class="box mt-5" @submit.prevent="register">
@@ -145,6 +145,12 @@
 </script>
 
 
-<style lang="scss" scoped>
-    @import "~bulma/css/bulma.css"
+<style scoped>
+
+.background{
+	display: flex;
+	flex-flow: column; 
+	height: 100%;
+	padding-bottom: 90px;
+}
 </style>

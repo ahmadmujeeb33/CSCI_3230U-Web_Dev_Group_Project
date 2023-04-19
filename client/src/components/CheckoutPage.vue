@@ -89,7 +89,12 @@
 								<div class="field">
 									<label class="label">Country</label>
 									<div class="control">
-										<input class="input addressText" type="text" placeholder="Canada">
+										<div class="select is-fullwidth">
+											<select class="province addressText">
+												<option>Canada</option>
+												<option>United States</option>
+											</select>
+										</div>
 									</div>
 								</div>
 							<!-- End of current column -->
@@ -370,25 +375,28 @@ function showReview(event) {
 	for (var i of products) {
 		//add each product to the product grid with the link id set to the product id
 		$("#productGrid").append('<div class="card"><header class="card-header"><p class="card-header-title">'+i.title+'</p></header><div class="card-image"><figure class="image is-4by3"><img src="'+i.url+'"></figure></div><footer class="card-footer"><p class="card-footer-item">$'+i.price+'</p></footer></div>');
-
-		itemVal += i.price; //increment to get total cost of all items
 		
+
 		// Set CSS of dynamically generated elements
 		$("#productGrid").find(".card").css({"height": "max-content"});
 		$("#productGrid").find(".card *").css({"background": "rgb(232, 104, 25)"});
-		$("#productGrid").find("a:link, a:visited, a:active").css( "color", "#FFDAB3" );
+	
+		$("#productGrid").find("a:link, a:visited, a:active, a").css( "color", "#FFDAB3" );
 		$("#productGrid").find("a:hover").css( "color", "white" );
-		$("#productGrid").find(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
+
+		$("#productGrid").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
+
+		itemVal += i.price; //increment to get total cost of all items
 	}
 
 	let taxVal = itemVal*0.13;
 	let shipVal = 10;
 	let totalVal = itemVal*1.0+taxVal+shipVal;
 	console.log(typeof taxVal);
-	$("#itemVal").replaceWith('<td class="itemVal">$'+itemVal*1.0+'</td>');
-	$("#shipVal").replaceWith('<td class="shipVal">$'+shipVal+'</td>');
-	$("#taxVal").replaceWith('<td class="taxVal">$'+taxVal+'</td>');
-	$("#totalVal").replaceWith('<td class="totalVal">$'+totalVal+'</td>');
+	$("#itemVal").replaceWith('<td class="itemVal">$'+(itemVal*1.0).toFixed(2)+'</td>');
+	$("#shipVal").replaceWith('<td class="shipVal">$'+(shipVal).toFixed(2)+'</td>');
+	$("#taxVal").replaceWith('<td class="taxVal">$'+(taxVal).toFixed(2)+'</td>');
+	$("#totalVal").replaceWith('<td class="totalVal">$'+(totalVal).toFixed(2)+'</td>');
 
 	//go to next panel (review panel) once it is ready
 	clickNext(event);
@@ -421,7 +429,7 @@ onAuthStateChanged(auth,async (user)=>{
 	const docSnap = await getDoc(docRef);
 	if (docSnap.exists())
 	{
-		if(docSnap.data().cart.length === 0){
+		if(docSnap.data().cart.length === 0){			
 			$(".checkout-form").replaceWith('<div class="checkout-form"><div class="card mb-5"><header class="card-header"><p class="card-header-title">Please add at least 1 item to your cart to check out.<button class="button is-warning" id="browseButton">Browse Products</button></p></header></div></div>')
 
 			$("#browseButton").click(function(){
