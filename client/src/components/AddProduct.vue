@@ -44,12 +44,12 @@
               <div class="control">
                 <div class="select">
                   <select v-model="categories" class="dropdown">
-                    <option>Bikes</option>
-                    <option>Clothes</option>
-                    <option>Furniture</option>
-                    <option>Phones</option>
-                    <option>Sports</option>
-                    <option>Watches</option>
+                    <option>Animals</option>
+                    <option>Cinema</option>
+                    <option>Food</option>
+                    <option>Gaming</option>
+                    <option>Robot</option>
+                    <option>Other</option>
 
                   </select>
                 </div>
@@ -59,40 +59,7 @@
         </div>
       </div>
 
-       <!-- <div class="field is-horizontal  ">
-        <div class="field-label is-normal">
-          <label class="label">Catagories</label>
-        </div>
-        <div class="field-body ">
-          <div class="inputBox">
-            <div class="field ">
-              <div class="control">
-                <textarea v-model="catagories" cols="49" rows="1"  class="textarea" placeholder="Enter Catagory"></textarea>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Catagories</label>
-        </div>
-        <div class="field-body ">
-          <div class="inputBox">
-            <div class="field ">
-              <div class="control">
-                <div class="select">
-                  <select>
-                    <option>Select dropdown</option>
-                    <option>With options</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      
 
 
       <div class="field is-horizontal">
@@ -168,13 +135,10 @@ export default {
   },
   methods:{
       onFileSelected(event){
-        console.log(event)
           this.selectedFile = event.target.files[0]
-          console.log(this.selectedFile)
       },
 
-      async onUpload(event){
-        console.log(event)
+      async onUpload(){
         const formData = new FormData()
         formData.append('file',this.selectedFile)
         formData.append('title',this.title)
@@ -182,8 +146,8 @@ export default {
         formData.append('categories',this.categories)
         formData.append('price',this.price)
         formData.append('name',this.name)
-        console.log(formData.get('name'))
         await axios.post("/api/upload",formData)
+				window.open("/home", "_self");
         // let ans = await axios.get("/api")
         // console.log(ans)
       }
