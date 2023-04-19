@@ -2,36 +2,36 @@
 	<div class="background">
 		<div class="category_tiles">
 			<div class="column" @click="goToCategory('Animal')">
-					<a class="title is-5">
-							Animals
+					<a>
+							<span class="title is-5">Animals</span>
 							<img src="../assets/categories/animal.jpg">
 					</a>
 			</div>
 
 			<div class="column" @click="goToCategory('Cinema')">
-					<a class="title is-5">
-							Cinema
+					<a>
+						<span class="title is-5">Cinema</span>
 							<img src="../assets/categories/cinema.jpg">
 					</a>
 			</div>
 
 			<div class="column" @click="goToCategory('Food')">
-					<a class="title is-5">
-							Food
+					<a>
+						<span class="title is-5">Food</span>
 							<img src="../assets/categories/food.jpg">
 					</a>
 			</div>
 
 			<div class="column" @click="goToCategory('Gaming')">
 					<a class="title is-5">
-							Gaming
+						<span class="title is-5">Gaming</span>
 							<img src="../assets/categories/gaming.jpg">
 					</a>
 			</div>
 
 			<div class="column" @click="goToCategory('Robot')">
-					<a class="title is-5">
-							Robot
+					<a>
+						<span class="title is-5">Robot</span>
 							<img src="../assets/categories/robot.jpg">
 					</a>
 			</div>
@@ -86,8 +86,8 @@
 			</div> -->
 
 			<div class="column" @click="goToCategory('Other')">
-					<a class="title is-5">
-							Other
+					<a>
+						<span class="title is-5">Other</span>
 							<img src="../assets/categories/other.jpg">
 					</a>
 			</div>
