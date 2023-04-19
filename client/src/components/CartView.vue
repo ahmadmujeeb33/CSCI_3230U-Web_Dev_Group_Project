@@ -71,7 +71,6 @@ onMounted(()=>
 
           let cartIDs =  docSnap.data().cart
           console.log(cartIDs)
-          
           cartIDs.forEach(i => {
             onAuthStateChanged(auth,async (user)=>{
               let docRef2 = doc(db, "Items", i)
@@ -119,6 +118,10 @@ onMounted(()=>
             })
             
           });
+					console.log("cartIDs.length",cartIDs.length);
+					if (cartIDs.length < 3){
+						$(".background").css({"padding-bottom": "420px"});
+					}
 
          
           
