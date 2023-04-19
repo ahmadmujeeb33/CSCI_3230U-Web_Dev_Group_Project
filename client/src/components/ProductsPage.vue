@@ -4,22 +4,59 @@
 	<div id="background">
 		<!-- Search results header -->
 		<section class="hero">
-				<p class="title is-6 left-align">
-					<b>Search Results:</b> 123 Products Found
+				<p class="title is-6 left-align mb-0">
+					<b>Search Results:</b> <span id="numProducts"></span> Products Found
 				</p>		
 		</section>
 
 		<!-- Display Products in Grid -->
-		<div class="columns"> <!-- "columns mt-5 is-8 is-variable" -->
+		<div class="columns is-gapless"> <!-- "columns mt-5 is-8 is-variable" -->
 			<!-- Filter menu -->
-			<div class="column is-one-fifth"> <!-- column is-4-tablet is-3-desktop -->
-				<ProductsPageSidebar/>
+			<div class="column is-one-fifth menuColumn"> <!-- column is-4-tablet is-3-desktop -->
+				<!-- <ProductsPageSidebar/> -->
+				<!-- https://bulma.io/documentation/components/menu/ -->
+				<section class="menu mt-0">
+					<p class="menu-label">
+						Category
+					</p>
+					<ul class="menu-list">
+						<li><a>Sample Category 1</a></li>
+						<li><a>Sample Category 2</a></li>
+						<li><a>Should these Categories by Dynamically Generated?</a></li>
+					</ul>
+					
+					<p class="menu-label">
+						Rating
+					</p>
+					<ul class="menu-list">
+						<li><a>1 Star and Above</a></li>
+						<li><a>2 Star and Above</a></li>
+						<li><a>3 Star and Above</a></li>
+						<li><a>4 Star and Above</a></li>
+					</ul>
+
+					<p class="menu-label">
+						Nested Menu Example
+					</p>
+					<ul class="menu-list">
+						<li><a>Team Settings</a></li>
+						<li>
+							<a class="is-active">Manage Your Team</a>
+							<ul>
+								<li><a>Members</a></li>
+								<li><a>Plugins</a></li>
+								<li><a>Add a member</a></li>
+							</ul>
+						</li>
+						<li><a>Invitations</a></li>
+					</ul>
+				</section>
 			</div>
 			<!-- Show product grid in remaining space -->
-			<div class="column productGrid">
+			<div class="column is-four-fifths productColumn">
 				
 						<!-- Product Grid -->
-						<section>
+						<section class="productSection">
 
 							<div class="container" id="productGrid">
 								
@@ -39,7 +76,7 @@
 </template>
 
 <script setup>
-import ProductsPageSidebar from './ProductsPageSidebar.vue'
+// import ProductsPageSidebar from './ProductsPageSidebar.vue'
 import store from '../store'
 import $ from 'jquery'
 
@@ -50,9 +87,10 @@ function productClick(event){
 }
 
 // const products = store.state.message;
-// console.log(products);
+//console.log(products);
 $(document).ready(function () {
-
+	console.log(store.state.message);
+	let loopCount = 0
 	$("#productGrid").replaceWith("<div class='container' id='productGrid'></div>");
 	for (var product of store.state.message) {
 		for(var key in product) {
@@ -61,6 +99,7 @@ $(document).ready(function () {
 			
 			document.getElementById(key).addEventListener("click", productClick); //how to add function parameter?
 
+			// Set CSS of dynamically generated elements
 			$(".card").css({"height": "max-content"});
 			$(".card *").css({"background": "rgb(232, 104, 25)"});
 		
@@ -68,8 +107,12 @@ $(document).ready(function () {
 			$("#productGrid").find("a:hover").css( "color", "white" );
 
 			$(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
+
+			loopCount += 1;
 		}
 	}
+	//show number of products
+	$("#numProducts").replaceWith('<span id="numProducts">'+loopCount+'</span>');
 
 });
 
@@ -77,35 +120,6 @@ $(document).ready(function () {
 </script>
 
 <style scoped>
-/* #app {
-font-family: Avenir, Helvetica, Arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-align: center;
-color: #2c3e50;
-margin-top: 60px;
-}
-.left-align {
-	text-align: left;
-	background-color: #fafafa;
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-.is-20px {
-  width: 20px;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 0.5em;
-}
-
-.productGrid {
-	padding: 10px;
-} */
-
 
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -128,12 +142,8 @@ margin-top: 60px;
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(1050px, 1fr));
   grid-gap: 0.5em;
-}
-
-.productGrid {
-    padding: 10px;
 }
 
 /* Added CSS Styling */
@@ -155,5 +165,22 @@ a:hover {
 
 .card * {
     background-color: rgb(232, 104, 25);
+}
+
+.menuColumn {
+	background-color: #fafafa;
+	margin-top: 2px;
+}
+
+.productSection {
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.menu {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 </style>

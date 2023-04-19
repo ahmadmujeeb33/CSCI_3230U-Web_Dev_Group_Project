@@ -78,7 +78,7 @@ export default {
 <style scoped>
   @import "../../node_modules/bulma/css/bulma.css";
 
-  .titleContainer{
+  /* .titleContainer{
     display: flex;
     justify-content: center;
     padding-top: 30px;
@@ -91,17 +91,13 @@ export default {
     height: 100vh;
   }
 
-  .inputBox{
-    background-color: pink;
-  }
-
   .upload{
     width: 60%;
     display: flex;
     justify-content: flex-end;
     gap:40px;
     padding-top: 30px;
-  }
+  } */
   
 	.menu {
 		position: sticky;

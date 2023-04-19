@@ -1,7 +1,7 @@
 <template>
-
-    <!-- <router-view/> -->
-		<div class="checkout-form">
+  <router-view/>
+	<div id="background">
+		<div class="checkout-form" hidden>
 			
 			<!-------------------- 1. Address Card ---------------------------->
 			<div class="card mb-5">
@@ -9,11 +9,6 @@
 					<p class="card-header-title">
 						1. Address
 					</p>
-					<!-- <button class="card-header-icon" aria-label="more options">
-						<span class="icon">
-							<i class="fas fa-angle-down"></i>
-						</span>
-					</button> -->
 				</header>
 				
 				<section class="card-form address">
@@ -220,22 +215,8 @@
 					
 								<!-- Placeholder - Will dynamically show all products in cart as cards -->
 								<h5 class="title is-5">Items</h5>
-								<div class="container">
-									<div class="card">
-											<header class="card-header">
-													<p class="card-header-title">
-															Products go here.  How to make them smaller?
-													</p>
-											</header>
-											<div class="card-image">
-													<figure class="image is-4by3">
-															<img src="../assets/football.png">
-													</figure>
-											</div>
-											<footer class="card-footer">
-													<a href="#" class="card-footer-item">Remove Button?</a>
-											</footer>
-									</div>
+								<div class="container" id="productGrid">
+									<!-- Product Cards Dynamically Inserted Here -->
 								</div>
 
 								<div class="columns mt-5">
@@ -270,21 +251,21 @@
 											<tbody>
 												<tr>
 													<th>Items: </th>
-													<td class="itemTotal">$1234</td>
+													<td id="itemVal">$1234</td>
 												</tr>
 												<tr>
 													<th>Shipping: </th>
-													<td class="itemTotal">$1234456</td>
+													<td id="shipVal">$1234456</td>
 												</tr>
 												<tr>
 													<th>Tax: </th>
-													<td class="itemTotal">$1</td>
+													<td id="taxVal">$1</td>
 												</tr>
 											</tbody>
 											<tfoot>
 												<tr>
 													<th>Order Total: </th>
-													<th class="itemTotal">$123456789</th>
+													<th id="totalVal">$123456789</th>
 												</tr>
 											</tfoot>
 										</table>
@@ -307,23 +288,32 @@
 		
 		</div>
 		<!-- End checkout form -->
+	</div>
 </template>
 
 <script setup>
 import $ from 'jquery'
 import { getAuth,onAuthStateChanged, } from "firebase/auth";
-import { getFirestore,doc,updateDoc} from "firebase/firestore";
+import { getFirestore,doc,updateDoc,getDoc} from "firebase/firestore";
 import { useRouter } from 'vue-router'
-
+let products = [];
+let speed = 500;
 
 $(document).ready(function () {
 	// hide all but 1st level
 	$(".card-form").hide();
 	$(".address").show();
+	// console.log('In doc.ready:', products);
+	// console.log('In doc.ready:', products.length);
+	// //$("#testP").append(products);
+
+	// products.forEach(function(item, index) {
+	// 	console.log("index, item", index, item);
+	// });
 });
 
 function clickNext(event) {
-	let speed = 500;
+	//let speed = 500;
 
 	//hide current card
 	let section = $(event.target).parents("section");
@@ -374,13 +364,39 @@ function showReview(event) {
 		}
 	});
 
+	$("#productGrid").replaceWith("<div class='container' id='productGrid'></div>");
+	///console.log('In showReview:', products[0].title);
+	let itemVal = 0;
+	for (var i of products) {
+		//add each product to the product grid with the link id set to the product id
+		$("#productGrid").append('<div class="card"><header class="card-header"><p class="card-header-title">'+i.title+'</p></header><div class="card-image"><figure class="image is-4by3"><img src="'+i.url+'"></figure></div><footer class="card-footer"><p class="card-footer-item">$'+i.price+'</p></footer></div>');
+
+		itemVal += i.price; //increment to get total cost of all items
+		
+		// Set CSS of dynamically generated elements
+		$("#productGrid").find(".card").css({"height": "max-content"});
+		$("#productGrid").find(".card *").css({"background": "rgb(232, 104, 25)"});
+		$("#productGrid").find("a:link, a:visited, a:active").css( "color", "#FFDAB3" );
+		$("#productGrid").find("a:hover").css( "color", "white" );
+		$("#productGrid").find(".container").css({"display": "grid", "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))", "grid-gap": "0.5em"});
+	}
+
+	let taxVal = itemVal*0.13;
+	let shipVal = 10;
+	let totalVal = itemVal*1.0+taxVal+shipVal;
+	console.log(typeof taxVal);
+	$("#itemVal").replaceWith('<td class="itemVal">$'+itemVal*1.0+'</td>');
+	$("#shipVal").replaceWith('<td class="shipVal">$'+shipVal+'</td>');
+	$("#taxVal").replaceWith('<td class="taxVal">$'+taxVal+'</td>');
+	$("#totalVal").replaceWith('<td class="totalVal">$'+totalVal+'</td>');
+
 	//go to next panel (review panel) once it is ready
 	clickNext(event);
 }
 
 
 function clickPrev(event) {
-	let speed = 500;
+	//let speed = 500;
 
 	//hide current card
 	let section = $(event.target).parents("section");
@@ -396,6 +412,43 @@ function clickPrev(event) {
 const router = useRouter();
 const db = getFirestore();
 let auth = getAuth();
+
+//GET INFO FOR EACH ITEM IN USER'S CART
+onAuthStateChanged(auth,async (user)=>{
+	if(user)
+	{
+	const docRef = doc(db, "user", user.uid);
+	const docSnap = await getDoc(docRef);
+	if (docSnap.exists())
+	{
+		if(docSnap.data().cart.length === 0){
+			$(".checkout-form").replaceWith('<div class="checkout-form"><div class="card mb-5"><header class="card-header"><p class="card-header-title">Please add at least 1 item to your cart to check out.<button class="button is-warning" id="browseButton">Browse Products</button></p></header></div></div>');
+
+			$("#browseButton").click(function(){
+				window.open("/home", "_self");
+			});
+
+			$("#browseButton").css({"margin-left": "15px"});
+		}
+		$(".checkout-form").show(speed);
+		for( var i =0; i<docSnap.data().cart.length;i++)
+		{
+			const docRef2 = doc(db, "Items", docSnap.data().cart[i]);
+			const docSnap2 = await getDoc(docRef2);
+			if (docSnap2.exists())
+			{
+				//console.log("docSnap2.data().title", docSnap2.data().title);
+				products.push(docSnap2.data());
+
+			}
+		
+			
+		}
+		
+	}
+	}
+	});
+
 
 const clear_cart = () => {
     auth=getAuth();
@@ -414,7 +467,7 @@ const clear_cart = () => {
 
 		}
 		alert ("Order Confirmed");
-		router.push('/')
+		router.push('/');
 
     });
 };
@@ -422,10 +475,6 @@ const clear_cart = () => {
 </script>
 
 <style>
-/* .review-column {
-	margin-right: 50px;
-	margin-left: 50px;
-} */
 
 .itemTotal {
 	text-align: right !important;
@@ -468,5 +517,10 @@ const clear_cart = () => {
 
 .title {
 	text-align: left;
+}
+
+/* Added CSS Styling */
+#background {
+    background-color: antiquewhite;
 }
 </style>
