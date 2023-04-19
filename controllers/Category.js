@@ -8,13 +8,11 @@ router.post('/', async (req, res) => {
 
         let search = req.body.category;
         search = search.toLowerCase();
-        // console.log(search);
 
         let items = await main.db.collection("Items").get();
 
         items.forEach((doc) => {
-            let category = doc.data().catagories;
-            // console.log(category);
+            let category = doc.data().categories;
             category = category.toLowerCase();
 
             if (category == search) {
@@ -25,11 +23,12 @@ router.post('/', async (req, res) => {
         console.log(matchedItems);
         console.log("\n");
         console.log("------------------------------------------------------")
+        res.send(matchedItems);
     } catch (error) {
         console.log(error);
     }
 
 })
 
-module.exports = router, matchedItems;
+module.exports = router;
 
