@@ -32,5 +32,9 @@ Copy the route (typically “localhost:8080”) into the browser.
 
 ![image](https://user-images.githubusercontent.com/60004924/236707372-fd8052f2-afe0-45ce-863f-cf6b3ae9088b.png)
 
+![image](https://user-images.githubusercontent.com/60004924/236707539-49b357ee-64bc-4af2-a95d-125ab60b9f09.png)
+
+![image](https://user-images.githubusercontent.com/60004924/236707550-8a707813-9d8c-45cd-a280-df04ea6ac1b3.png)
+
 
 
