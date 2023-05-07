@@ -13,3 +13,7 @@
    4.  Front end(Vue) is now running, copy and paste the route(in the terminal) to your browser and you are on the website.
 ## 3. Open website:
 Copy the route (typically “localhost:8080”) into the browser.
+
+## Pages
+
+![image](https://user-images.githubusercontent.com/60004924/236707159-e8f2d00b-b6cc-4c2b-a7c2-98d74ca50d12.png)
